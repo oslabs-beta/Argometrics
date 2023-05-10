@@ -51,12 +51,13 @@ module.exports = {
         new Dotenv()
       ],
       devServer: {
-        static: {
-          compress: true,
-          port: 8080,
-          proxy: {
-            '/': 'http://localhost:3000'
-          }
+        static: path.join(__dirname, 'public/'),
+        devMiddleware: {  
+          publicPath: '/dist/'
+        },
+        port: 8080,
+        proxy: {
+          '/api': 'http://localhost:6000/'
         }
       },
     resolve: {

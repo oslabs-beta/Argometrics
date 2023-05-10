@@ -19,3 +19,4 @@ useful helm & K8 commands
     - kubectl port-forward -n default prometheus-grafana-85978cf69c-dxrqf 9091
         - kubectl port-forward -n default {grafana podname} 
 
+//removed from start: 
