@@ -1,21 +1,21 @@
-# Docky
-ORDER OF ACTION
+# Argometrics
 
-Figure out how to create an electron app in vscode
-What does our file structure look like?
-Webpack
-Electron
-prometheus/grafana
-src/client/components/middleware/server/routes
-Get a local k8 cluster going
-Apply load to our cluster
-K6
-Hey - https://github.com/rakyll/hey
-Vegeta ( http loads)
-Work on app
-Frontend
-Work on ui
-Backend
-Promql queries
-Scraping data and sending prometheus instance to grafana host
+# README
+
+SET-UP
+-------
+port prometheus forward to 9090
+port grafana forward to 9091
+backend server is on port 3000
+
+useful helm & K8 commands
+--------------------------
+    - helm list
+    - helm repo list
+    - kubectl --namespace default get pods -l "release=prometheus"
+    - kubectl get secret --namespace {namespace} {podname} -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+    - kubectl port-forward -n default prometheus-prometheus-kube-prometheus-prometheus-0 9090
+        - kubectl port-forward -n default {prometheus podname} 
+    - kubectl port-forward -n default prometheus-grafana-85978cf69c-dxrqf 9091
+        - kubectl port-forward -n default {grafana podname} 
 
