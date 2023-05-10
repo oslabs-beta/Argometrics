@@ -51,12 +51,21 @@ module.exports = {
         new Dotenv()
       ],
       devServer: {
+        host: 'localhost',
+        port: 8080,
+        // static: path.join(__dirname, 'public/'),
+        // devMiddleware: {  
+        //   publicPath: '/dist/'
+        // },
         static: {
-          compress: true,
-          port: 8080,
-          proxy: {
-            '/': 'http://localhost:3000'
-          }
+          directory: path.resolve(__dirname, 'dist'),
+          publicPath: '/',
+        },
+        hot: true,
+        historyApiFallback: true,
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        proxy: {
+          '/api/**': 'http://localhost:6000/'
         }
       },
     resolve: {
