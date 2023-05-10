@@ -2,21 +2,34 @@ import express, { Request, Response, NextFunction, ErrorRequestHandler } from "e
 import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
+import cookieParser from 'cookie-parser';
+import router from './routers/router';
+import connectDB from './db/db'
+const PORT = 6000;
+const app = express();
+
+connectDB();
 
 dotenv.config();
 
-const PORT = 6000;
-
-const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-// All incoming routes will be sent to the userRoute for CRUD handling
+// serve static files?
+app.use(express.static(path.join(__dirname, '../client')));
+app.get('/', (req: Request, res: Response) => {
+  console.log('Backend and frontend linked');
+  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+});
+
+// general server routing
+app.use('/api', router);
 
 // Local error handler
-app.use(express.static(path.join(__dirname, '../client')));
+app.use((req: Request, res: Response) => res.sendStatus(404));
 
 app.get('/', (req: Request, res: Response) => {
   console.log('Backend and frontend linked');
