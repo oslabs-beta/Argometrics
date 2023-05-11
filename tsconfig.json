@@ -20,7 +20,8 @@
   },
   "include": [
     "client", 
-    "electron", 
+    "electron",
+    "controllers",
     "server",
     "src"],
 }

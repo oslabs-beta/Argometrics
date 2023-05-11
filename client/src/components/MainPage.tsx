@@ -21,7 +21,7 @@ const MainPage = () => {
      <div id='main-page-container'>
         <div id="cluster-container">clusters go here!</div>
         <div id="button-container">
-            <button onClick={()=>{setToggleDashboard(false)}}>Home</button>
+            <button id='homeButton' onClick={()=>{setToggleDashboard(false)}}>Home</button>
             <button onClick={()=>{setToggleDashboard(true)}}>Dashboard</button>
         </div>
         <div id="main-container">
