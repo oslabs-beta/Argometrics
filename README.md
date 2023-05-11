@@ -52,4 +52,3 @@ HOW TO CHANGE GRAFANA SETTINGS VIA GRAFANA CONFIG
                 - :q! -> force quit without saving changes
     - restart docker desktop or whatever virtualization software is being used
     - forward your ports again and the changes to grafana.ini should be reflected in settings tab
-

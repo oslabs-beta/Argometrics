@@ -47,6 +47,10 @@ app.use('/api', router);
 // Local error handler
 app.use((req: Request, res: Response) => res.sendStatus(404));
 
+app.get('/', (req: Request, res: Response) => {
+  console.log('Backend and frontend linked');
+  return res.status(200).sendFile(path.join(__dirname, '../index.html'));
+});
 // Global error handler
 app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
