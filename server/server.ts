@@ -4,7 +4,9 @@ import dotenv from "dotenv";
 import path from "path";
 import cookieParser from 'cookie-parser';
 import router from './routers/router';
-import connectDB from './db/db'
+import connectDB from './config/db';
+import passport from 'passport';
+import session from 'express-session';
 const PORT = 6000;
 const app = express();
 
@@ -12,11 +14,25 @@ connectDB();
 
 dotenv.config();
 
+// passport config
+app.use(session({
+  secret: 'secret',
+  // session save based on modifications
+  resave: false,
+  // session created when nothing stored
+  saveUninitialized: false,
+}))
 
+
+// global middlewares
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(passport.authenticate('session'))
+// app.use(passport.initialize())
+// app.use(passport.session())
 
 // serve static files?
 app.use(express.static(path.join(__dirname, '../client')));

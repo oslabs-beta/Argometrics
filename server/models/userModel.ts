@@ -7,6 +7,7 @@ const SALT_WORK_FACTOR = 10;
 const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
+    googleId: { type: String, default: null },
     username: { type: String, unique: true, required: true },
     password: { type: String, required: true }
 });
