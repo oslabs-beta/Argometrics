@@ -1,0 +1,47 @@
+
+#main-page-container{
+    display: flex;
+    height: 95vh;
+    // border: 1px solid red;
+    justify-content: space-around;
+}
+#cluster-container {
+    border: 1px solid black;
+    border-radius: 1rem;
+}
+
+#button-container {
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    // margin-left: 20px;
+    // margin-right: 20px;
+    width: 10vw;
+    border-radius: 1rem;
+
+    padding-top: 40px;
+
+    button {
+        overflow: hidden;
+        margin: 40px;
+        height: 10%;
+        width: 50%;
+        border-radius: 0.5rem;
+    }
+}
+
+#main-container {
+    // border: 1px solid red;
+    width: 60vw;
+}
+
+#darkModeButton {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    button{
+        height: 30px;
+        overflow: hidden;
+    }
+}
