@@ -8,8 +8,8 @@ const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
     googleId: { type: String, default: null },
-    username: { type: String, unique: true, required: true },
-    password: { type: String, required: true }
+    username: { type: String, unique: true, required: false },
+    password: { type: String, required: false }
 });
 
 userSchema.pre('save', function(next) {

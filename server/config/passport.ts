@@ -10,13 +10,13 @@ dotenv.config();
 const search = async (accessToken: string, refreshToken: string, profile: any, done: any) => {
   console.log('profile', profile)
   // verify user in db
-  const checkUser = await userController.getUser(profile.sub)
+  const checkUser = await userController.getGoogleUser(profile.sub)
   // if user exists, authenticate user
   if (checkUser.length) {
     return done(null, checkUser)
   } else {
   // else add user profile and authenticate
-    const id = await userController.addUser(profile)
+    const id = await userController.addGoogleUser(profile)
     // need to verify this part works
     return done(null, id)
   }
