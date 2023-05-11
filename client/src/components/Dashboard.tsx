@@ -1,8 +1,8 @@
 import React from 'react';
-
+import '../stylesheets/Dashboard.scss'
 const Dashboard = () => {
   return(
-      <div>dashboard</div>
+      <div id='dashboard-container'>dashboard</div>
   )
 }
 

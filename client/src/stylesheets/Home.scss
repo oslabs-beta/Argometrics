@@ -1,0 +1,16 @@
+#homepage {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    button {
+    
+        background-color: rgb(135, 216, 135);
+        height: 300px;
+        width: 300px;
+        font-size: 200px;
+        border-radius: .5rem;
+    }
+}
