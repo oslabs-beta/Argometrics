@@ -7,7 +7,7 @@ const router = express.Router();
 // general user login
 router.post('/login', userController.getUser, (req: Request, res: Response) => {
   // what to send back?
-  return res.status(200)
+  return res.status(200).json(res.locals.userInfo)
 })
 
 // general user register
