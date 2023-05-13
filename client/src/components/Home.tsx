@@ -1,15 +1,25 @@
 import React from 'react';
+import { useSpring, animated } from 'react-spring';
 import '../stylesheets/Home.scss'
 
-const Home = () =>{
-  return(
-    <>
-    <div id='homepage'>
-      <h3>Add Cluster</h3>
-      <button>+</button>
-    </div>
-    </>
-  )
-}
+const Home = () => {
+  const buttonAnimation = useSpring({
+    transform: 'translateY(0)', // Starting position
+    from: { transform: 'translateY(3000px)' }, // Initial position
+  });
 
-export default Home
+  return (
+    <>
+      <div id="homepage">
+        <h1 className="fa-fade">Add Cluster</h1>
+        <animated.button
+          id="cluster-btn"
+          className="fa-thin fa-plus fa-fade fa-xl"
+          style={buttonAnimation}
+        ></animated.button>
+      </div>
+    </>
+  );
+};
+
+export default Home;

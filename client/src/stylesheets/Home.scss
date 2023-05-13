@@ -5,12 +5,31 @@
     justify-content: center;
     align-items: center;
     height: 95vh;
-    button {
-    
-        background-color: rgb(135, 216, 135);
-        height: 300px;
-        width: 300px;
-        font-size: 200px;
-        border-radius: .5rem;
-    }
+}
+#cluster-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgb(17, 178, 17);
+    height: 25vw;
+    width: 25vw;
+    font-size: 15vw;
+    // border-radius: 1rem;
+    // border: 0.5px solid black;
+    box-shadow: 0px 0px 20px gray;
+    // font-weight: lighter;
+    align-self: center;
+    margin-bottom: 70px;
+   
+}
+
+#cluster-btn:hover {
+    background-color: rgb(50, 49, 56);
+    cursor: pointer;
+}
+
+
+h1{
+color: lightblue;
 }

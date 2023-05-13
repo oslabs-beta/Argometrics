@@ -1,48 +1,62 @@
+// * {
+//     border: 1px solid red;
+// }
 
 #main-page-container{
     display: flex;
     height: 95vh;
-    // border: 1px solid red;
-    justify-content: space-around;
+    border: .05rem solid black;
 }
+
 #cluster-container {
-    border: 1px solid black;
-    border-radius: 1rem;
+    display: flex;
+    background-color: rgb(50, 49, 56);
     padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: lightblue
+    
 }
 
 #button-container {
+    background-color: rgb(50, 49, 56);
     align-items: center;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    // margin-left: 20px;
-    // margin-right: 20px;
     width: 10vw;
-    border-radius: 1rem;
-
     padding-top: 40px;
+    border-right: .05rem solid black;
+    border-left: .05rem solid black;
 
     button {
+        border: none;
+        box-shadow: 0px 0px 10px gray;
         overflow: hidden;
-        margin: 40px;
-        height: 10%;
-        width: 50%;
-        border-radius: 0.5rem;
+        margin: 50px;
+        height: 8vw;
+        width: 8vw;
+        font-size: 1.5rem;
+        // border-radius: 0.5rem;
     }
 }
 
 #main-container {
-    // border: 1px solid red;
-    width: 60vw;
+    flex-direction: row;
+    flex-grow: 1;
+    // background-image: linear-gradient(to top, white, rgb(94, 156, 173))
+    background-color: rgb(21, 76, 96);
 }
 
-#darkModeButton {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5vh;
-    button{
-        height: 30px;
-        overflow: hidden;
-    }
+
+.cluster-buttons {
+    height: 4vw;
+    width:  4vw;
+    // border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px gray;
+    border: none;
+}
+
+.active {
+    background-color: lightblue;
 }
