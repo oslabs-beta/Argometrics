@@ -16,21 +16,28 @@ const MainPage = () => {
             useEffect(() => {
               console.log(toggleDashboard);
           }, [toggleDashboard]);
+
+          let buttons = []
+          for(let i = 0; i < 10; i++){
+            buttons.push(<button className='cluster-buttons'></button>)
+          }
         
     return (
      <div id='main-page-container'>
-        <div id="cluster-container">clusters go here!</div>
-        <div id="button-container">
-            <button id='homeButton' onClick={()=>{setToggleDashboard(false)}}>Home</button>
-            <button onClick={()=>{setToggleDashboard(true)}}>Dashboard</button>
+        <div id="cluster-container">
+            <h3>Cluster View</h3>
+            {buttons}
         </div>
-        <div id="main-container">
-            {mainComponent}
-        </div>
-        <div id='darkModeButton'>
-            <button>Toggle Dark Mode</button>
-        </div>
-     </div>
+            <div id="button-container">
+                <button id='homeButton' onClick={()=>{setToggleDashboard(false)}}>Home</button>
+                <button onClick={()=>{setToggleDashboard(true)}}>Dashboard</button>
+            </div>
+                <div id="main-container">
+                    {mainComponent}
+                </div> 
+                {/* <button id="darkModeButton">Toggle Dark Mode</button> */}
+                
+    </div>
     )
 }
 
