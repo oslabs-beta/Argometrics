@@ -8,10 +8,10 @@ import MainPage from './MainPage';
 const App = () => {
     
     const navigate = useNavigate();
-
+    const [userInfo, setUserInfo] = useState<string>('');
     return (
         <Routes>
-            <Route path='/login' element={<LoginPage/>} caseSensitive={true} />
+            <Route path='/login' element={<LoginPage userInfo={userInfo} setUserInfo={setUserInfo}/>} caseSensitive={true} />
             <Route path='/mainPage' element={<MainPage/>} caseSensitive={true}/>
         </Routes>
     )
