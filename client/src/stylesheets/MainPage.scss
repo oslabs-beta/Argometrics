@@ -1,3 +1,6 @@
+// * {
+//     border: 1px solid red;
+// }
 
 #main-page-container{
     display: flex;
@@ -33,6 +36,7 @@
         margin: 50px;
         height: 8vw;
         width: 8vw;
+        font-size: 1.5rem;
         // border-radius: 0.5rem;
     }
 }
@@ -53,7 +57,6 @@
     border: none;
 }
 
-#darkModeButton {
-   
+.active {
+    background-color: lightblue;
 }
-
