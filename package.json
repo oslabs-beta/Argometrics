@@ -16,7 +16,6 @@
     "@types/express-session": "^1.17.7",
     "@types/passport": "^1.0.12",
     "@types/passport-google-oauth2": "^0.1.5",
-
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
@@ -32,6 +31,7 @@
     "passport-google-oauth2": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-spring": "^9.7.1",
     "sass": "^1.62.1"
   },
   "devDependencies": {
