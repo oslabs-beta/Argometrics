@@ -49,17 +49,30 @@ const userController = {
   // add general user to db
   addUser: (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body
-    User.create({ username, password })
+    // add db check for unique username
+    User.find({ username })
       .then((user: object) => {
-        res.locals.userInfo = user
-        return next()
-      })
-      .catch((err: ErrorRequestHandler) => {
-        return next({
-          log: 'userController.addUser error',
-          message: { err: `Error caught in userController.addUser: ${err}` }
+        if (user) throw new Error('Username already exist') 
+        // create user in db if no user is found
+        User.create({ username, password })
+          .then((user: object) => {
+            res.locals.userInfo = user;
+            return next()
+          })
+        .catch((err: ErrorRequestHandler) => {
+          return next({
+            log: 'userController.addUser error',
+            message: { err: `Error caught creating user in userController.addUser: ${err}` }
+          })
         })
       })
+      .catch((err: Error) => {
+        return next({
+          log: 'userController.addUser error',
+          message: { err: `Error caught in finding user in userController.addUser: ${err}` }
+        })
+      })
+    
   },
 
 

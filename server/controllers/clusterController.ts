@@ -11,7 +11,7 @@ const createErrorObject = (err: any) => {
 
 const clusterController = {
     getAllClusters: async (req: Request, res: Response, next: NextFunction) => {
-        const userId = req.cookies.id;
+        const userId = req.cookies.session;
         try {
             const clusters = await Cluster.find({ userId: userId });
             res.locals.clusters = clusters;
@@ -22,7 +22,7 @@ const clusterController = {
         }
     },
     addCluster: async (req: Request, res: Response, next: NextFunction) => {
-        const userId = req.cookies.id;
+        const userId = req.cookies.session;
         const { name, url } = req.body;
         try {
             const dashboards = await dashboardController.getDashboards(url);
