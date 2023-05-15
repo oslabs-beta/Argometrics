@@ -27,7 +27,6 @@ const dashboardController = {
       kubeStateMetricUId: 'kubeStateMetric',
       kubePrometheusUId: 'kubePrometheus',
       nodeExporterUId: 'nodeExporter',
-      prometheusExporterUId: 'prometheusExporter',
     };
 
     // call fetchGrafana fn

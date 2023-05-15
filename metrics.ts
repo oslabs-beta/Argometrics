@@ -16,11 +16,6 @@ export const dashboards = {
     dashboardUIdKey: 'rYdddlPWk',
     grafanaLinkDText: 'nodeExporter'
   },
-  prometheusExporter: {
-    fullName: 'Prometheus',
-    dashboardUIdKey: 'nUlQfXolp',
-    grafanaLinkDText: 'prometheusExporter',
-  },
   kubePrometheus: {
     fullname: 'Kube Prometheus',
     dashboardUIdKey: 'PwMJtdvnz',
