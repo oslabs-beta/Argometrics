@@ -29,10 +29,6 @@ export type DashboardUIds = {
     dashboardUIDKey: string,
     grafanaLinkDText: string
   },
-  prometheusExporterUId: {
-    dashboardUIDKey: string,
-    grafanaLinkDText: string
-  },
 }
 
 export type DBUIds = {
@@ -41,7 +37,6 @@ export type DBUIds = {
   kubeStateMetricUId?: string,
   kubePrometheusUId?: string,
   nodeExporterUId?: string,
-  prometheusExporterUId?: string,
 };
 // example of what link should be generated for each iframe
 //<iframe src="http://localhost:3000/
