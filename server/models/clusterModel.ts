@@ -6,7 +6,13 @@ const clusterSchema = new Schema ({
     userId: { type: String, required: true },
     clusterName: { type: String, required: true },
     url: { type: String, required: true },
-    dashboards: {}
-})
+    dashboards: {
+      apiServerUId: { type: String},
+      kubeStateMetricUId: { type: String},
+      kubePrometheusUId: { type: String},
+      nodeExporterUId: { type: String},
+      prometheusExporterUId: { type: String},
+    }
+});
 
-module.exports = mongoose.model('Cluster', clusterSchema);
+export const Cluster = mongoose.model('Cluster', clusterSchema);
