@@ -33,11 +33,10 @@ export type DashboardUIds = {
 
 export type DBUIds = {
   // here is where we will save each dashboard UID ex: wAfgtlsOl
-  apiServer?: string,
-  kubeStateMetric?: string,
-  kubePrometheus?: string,
-  nodeExporter?: string,
-  prometheusExporter?: string,
+  apiServerUId?: string,
+  kubeStateMetricUId?: string,
+  kubePrometheusUId?: string,
+  nodeExporterUId?: string,
 };
 // example of what link should be generated for each iframe
 //<iframe src="http://localhost:3000/

@@ -22,11 +22,11 @@ const dashboardController = {
 
     // names of the dashboards we will search for
     const dashboards = {
-      apiServer: 'apiServer',
-      kubeStateMetric: 'kubeStateMetric',
-      kubePrometheus: 'kubePrometheus',
-      nodeExporter: 'nodeExporter',
-      prometheusExporter: 'prometheusExporter',
+
+      apiServerUId: 'apiServer',
+      kubeStateMetricUId: 'kubeStateMetric',
+      kubePrometheusUId: 'kubePrometheus',
+      nodeExporterUId: 'nodeExporter',
     };
 
     // call fetchGrafana fn

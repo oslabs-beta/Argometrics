@@ -11,7 +11,6 @@ const clusterSchema = new Schema ({
       kubeStateMetricUId: { type: String},
       kubePrometheusUId: { type: String},
       nodeExporterUId: { type: String},
-      prometheusExporterUId: { type: String},
     }
 });
 
