@@ -4,9 +4,9 @@ import {Cluster} from '../../../types'
 interface DashboardProps {
   userId: string;
   cluster: Cluster;
-  setCluster: React.Dispatch<React.SetStateAction<Cluster>>;
+  toggleDashboard: string
 }
-const Dashboard = () => {
+const Dashboard = ({ userId, cluster, toggleDashboard }: DashboardProps) => {
   // going to prop drill our cluster
   return(
     <div>

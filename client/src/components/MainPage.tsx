@@ -4,16 +4,41 @@ import { useSpring, animated } from 'react-spring';
 import { config } from '@react-spring/web';
 import Home from './Home';
 import '../stylesheets/MainPage.scss';
-import { Cluster } from '../../../types';
+import { Cluster, DashboardUIds } from '../../../types';
 interface MainPageProps {
     userId: string;
     setUserId: React.Dispatch<React.SetStateAction<string>>
   }
 
 const MainPage = ({userId, setUserId}: MainPageProps) => {
+  const defaultDashboard: DashboardUIds = {
+    apiServer: {
+        dashboardUIDKey: '',
+        grafanaLinkDText: ''
+      },
+      kubeStateMetric: {
+        dashboardUIDKey: '',
+        grafanaLinkDText: ''
+      },
+      kubePrometheus: {
+        dashboardUIDKey:'',
+        grafanaLinkDText: ''
+      },
+      nodeExporter: {
+        dashboardUIDKey: '',
+        grafanaLinkDText: ''
+      }
+    }
+  const defaultCluster: Cluster = {
+    userId: userId,
+    clusterName: '',
+    url: '',
+    dashboards: defaultDashboard
+  };
+
   // hook to set the cluster you are working on
     // clicking on a different cluster should call setCluster
-  const [cluster, setCluster] = useState<Cluster>();
+  const [cluster, setCluster] = useState<Cluster>(defaultCluster);
   const [clustersFetched, setClustersFetched] = useState<boolean>(false)
 
   // thinking we make 4 dashboard toggles
