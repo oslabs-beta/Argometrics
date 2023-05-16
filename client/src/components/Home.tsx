@@ -1,8 +1,14 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import '../stylesheets/Home.scss'
+import { Cluster } from '../../../types';
 
-const Home = () => {
+interface HomeProps {
+  userId: string;
+  cluster: Cluster
+  setCluster: React.Dispatch<React.SetStateAction<Cluster>>;
+}
+const Home = ({ userId, cluster, setCluster}: HomeProps) => {
   const buttonAnimation = useSpring({
     transform: 'translateY(0)', // Starting position
     from: { transform: 'translateY(3000px)' }, // Initial position
