@@ -16,7 +16,7 @@
     padding: 1rem;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     color: #7db1de;
     
 }
@@ -27,24 +27,15 @@
     display: flex;
     flex-direction: column;
     width: 10vw;
-    padding-top: 40px;
     border-right: .05rem solid black;
     border-left: .05rem solid black;
-
-    button {
-        border: none;
-        box-shadow: 0px 0px 10px gray;
-        overflow: hidden;
-        margin: 50px;
-        height: 8vw;
-        width: 8vw;
-        font-size: 1vw;
-        border-radius: 1vw;
-    }
+    justify-content: space-around;
+    
 
     button:hover {
         cursor: pointer;
     }
+
 }
 
 #main-container {
@@ -66,3 +57,41 @@
     background-color: #7db1de
 }
 
+.dash-buttons {
+    
+    border: none;
+    box-shadow: 0px 0px 10px gray;
+    overflow: hidden;
+    height: 6vw;
+    width: 6vw;
+    font-size: 1vw;
+    border-radius: 1vw;
+    margin: 1vw;
+    font-size: .8vw;
+}
+
+#homeButton {
+    border: none;
+        box-shadow: 0px 0px 10px gray;
+        overflow: hidden;
+        min-height: 4vw;
+        min-width: 4vw;
+        margin: 1vw;
+        height: 8vw;
+        width: 8vw;
+        font-size: 1vw;
+        border-radius: 1vw;
+}
+
+#dash {
+    border: none;
+        box-shadow: 0px 0px 10px gray;
+        overflow: hidden;
+        min-height: 4vw;
+        min-width: 4vw;
+        margin: 1vw;
+        height: 8vw;
+        width: 8vw;
+        font-size: 1vw;
+        border-radius: 1vw;
+}
