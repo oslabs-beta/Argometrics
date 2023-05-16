@@ -13,22 +13,22 @@ export type Cluster = {
 
 export type DashboardUIds = {
   // these are the dashboards on our grafana local host that have been imported from grafana
-  apiServerUId: {
+  apiServer: {
     dashboardUIDKey: string,
     grafanaLinkDText: string
   },
-  kubeStateMetricUId: {
+  kubeStateMetric: {
     dashboardUIDKey: string,
     grafanaLinkDText: string
   },
-  kubePrometheusUId: {
+  kubePrometheus: {
     dashboardUIDKey: string,
     grafanaLinkDText: string
   },
-  nodeExporterUId: {
+  nodeExporter: {
     dashboardUIDKey: string,
     grafanaLinkDText: string
-  },
+  }
 }
 
 export type DBUIds = {
@@ -47,3 +47,4 @@ export type DBUIds = {
 //             from=now-1h
 //             to=now
 //             panelId=4" width="450" height="200" ></iframe>
+

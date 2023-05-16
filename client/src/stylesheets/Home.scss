@@ -1,5 +1,4 @@
 #homepage {
-    // border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,25 +10,24 @@
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: rgb(17, 178, 17);
+    background-color: rgb(50, 49, 56);
+    color:aliceblue;
     height: 25vw;
     width: 25vw;
     font-size: 15vw;
-    // border-radius: 1rem;
-    // border: 0.5px solid black;
-    box-shadow: 0px 0px 20px gray;
-    // font-weight: lighter;
+    box-shadow: 0px 0px 20px #ACE894;
     align-self: center;
     margin-bottom: 70px;
-   
+    border-radius: 1vw;
 }
 
 #cluster-btn:hover {
-    background-color: rgb(50, 49, 56);
+    background-color: #ACE894;
+    
     cursor: pointer;
 }
 
-
 h1{
-color: lightblue;
+color: #7db1de
+
 }

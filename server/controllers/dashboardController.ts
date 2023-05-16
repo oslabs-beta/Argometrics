@@ -1,7 +1,6 @@
 //import types
 import express, { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
-import { DBUIds } from '../../types'
-import fetch from 'node-fetch'
+import { DBUIds } from '../../types';
 
 const createErrorObject = (err: any) => {
   return {
@@ -23,6 +22,7 @@ const dashboardController = {
 
     // names of the dashboards we will search for
     const dashboards = {
+
       apiServerUId: 'apiServer',
       kubeStateMetricUId: 'kubeStateMetric',
       kubePrometheusUId: 'kubePrometheus',
@@ -33,11 +33,11 @@ const dashboardController = {
     const dashboardUIds = fetchGrafana();
     // dashboardUIds is going to be an obj
     // {
-    //   apiServerUId: uid from grafana
-    //   kubeStateMetricUId: uid from grafana
-    //   kubePrometheusUId: uid from grafana
-    //   nodeExporterUId: uid from grafana
-    //   prometheusExporterUId: uid from grafana
+    //   apiServer: uid from grafana
+    //   kubeStateMetric: uid from grafana
+    //   kubePrometheus: uid from grafana
+    //   nodeExporter: uid from grafana
+    //   prometheusExporter: uid from grafana
     // }
     return dashboardUIds;
 

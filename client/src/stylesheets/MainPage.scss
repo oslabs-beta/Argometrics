@@ -1,26 +1,28 @@
-// * {
-//     border: 1px solid red;
-// }
+* {
+    // border: 1px solid red;
+    font-family: 'Roboto';
+    
+}
 
 #main-page-container{
     display: flex;
-    height: 95vh;
+    height: 98vh;
     border: .05rem solid black;
 }
 
 #cluster-container {
     display: flex;
-    background-color: rgb(50, 49, 56);
+    background-color: #636564;
     padding: 1rem;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    color: lightblue
+    color: #7db1de;
     
 }
 
 #button-container {
-    background-color: rgb(50, 49, 56);
+    background-color: #636564;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -36,27 +38,31 @@
         margin: 50px;
         height: 8vw;
         width: 8vw;
-        font-size: 1.5rem;
-        // border-radius: 0.5rem;
+        font-size: 1vw;
+        border-radius: 1vw;
+    }
+
+    button:hover {
+        cursor: pointer;
     }
 }
 
 #main-container {
     flex-direction: row;
     flex-grow: 1;
-    // background-image: linear-gradient(to top, white, rgb(94, 156, 173))
-    background-color: rgb(21, 76, 96);
+    background-color: #38393c
 }
 
 
 .cluster-buttons {
     height: 4vw;
     width:  4vw;
-    // border-radius: 0.5rem;
     box-shadow: 0px 0px 10px gray;
     border: none;
+    border-radius: 0.5vw;
 }
 
 .active {
-    background-color: lightblue;
+    background-color: #7db1de
 }
+
