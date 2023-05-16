@@ -15,6 +15,7 @@ connectDB();
 dotenv.config();
 
 // passport config
+// require('./config/passport')(passport)
 app.use(session({
   secret: 'secret',
   // session save based on modifications

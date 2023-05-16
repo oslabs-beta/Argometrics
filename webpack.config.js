@@ -54,9 +54,9 @@ module.exports = {
         host: 'localhost',
         port: 8888,
         // static: path.join(__dirname, 'public/'),
-        devMiddleware: {  
-          publicPath: './dist'
-        },
+        // devMiddleware: {  
+        //   publicPath: './dist'
+        // },
         static: {
           directory: path.resolve(__dirname, 'dist'),
           publicPath: '/',
@@ -65,7 +65,7 @@ module.exports = {
         historyApiFallback: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
         proxy: {
-          '/api': {
+          '/': {
             target: 'http://localhost:6000/',
             changeOrigin: true,
           }
