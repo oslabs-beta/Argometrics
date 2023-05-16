@@ -28,7 +28,7 @@ export const dashboards = {
   },
 }
 
-export const allMetrics = {
+const allMetrics = {
     
     // nodeExporter
     cpuGauge: {
@@ -264,5 +264,75 @@ export const allMetrics = {
     },
 }
 
+export function grafanaIFrameGenerator(cluster: Cluster, metric: string, refresh?: number, theme?: string) {
+  const dashboardUIds = cluster.dashboards;
+  const grafanaUrl = cluster.url;
+
+  if(!refresh) 
+    refresh = 30;
+  if(!theme) 
+    theme = 'light';
+  
+  // included what some of the objects look like at the bottom of function for clarity
+  const dbUId: string = dashboardUIds[dashboards[allMetrics[metric].dashboard].dashboardUIdKey];
+  const dbText: string = dashboards[allMetrics[metric].dashboard].grafanaLinkDText;
+  const panelId: string = allMetrics[metric].panel.toString();
+  
+  const link: string = `${grafanaUrl}/d-solo/${dbUId}/${dbText}?orgId=1&refresh=${refresh}s&theme=${theme}&panelId=${panelId}`;
+  
+  return link;
+  
+  // export type DashboardUIds = {
+  //   apiServer: {
+  //     dashboardUIDKey: string,
+  //     grafanaLinkDText: string
+  //   },
+  //   kubeStateMetric: {
+  //     dashboardUIDKey: string,
+  //     grafanaLinkDText: string
+  //   },
+  //   kubePrometheus: {
+  //     dashboardUIDKey: string,
+  //     grafanaLinkDText: string
+  //   },
+  //   nodeExporter: {
+  //     dashboardUIDKey: string,
+  //     grafanaLinkDText: string
+  //   },
+  //   prometheusExporter: {
+  //     dashboardUIDKey: string,
+  //     grafanaLinkDText: string
+  //   },
+  // }
+        // export const dashboards = {
+        //   apiServer: {
+        //     fullName: 'API Server',
+        //     dashboardUIdKey: 'R6abPf9Zz',
+        //     grafanaLinkDText: 'apiServer',
+        //   },
+        //   kubeStateMetric: {
+        //     fullName: 'Kubelet State Metrics',
+        //     dashboardUIdKey: 'wAfgtlsOl',
+        //     grafanaLinkDText: 'kubeStateMetric',
+        //   },
+        //   nodeExporter: {
+        //     fullName: 'Node Exporter',
+        //     dashboardUIdKey: 'rYdddlPWk',
+        //     grafanaLinkDText: 'nodeExporter'
+        //   },
+        //   prometheusExporter: {
+        //     fullName: 'Prometheus',
+        //     dashboardUIdKey: 'nUlQfXolp',
+        //     grafanaLinkDText: 'prometheusExporter',
+        //   },
+        //   kubePrometheus: {
+        //     fullname: 'Kube Prometheus',
+        //     dashboardUIdKey: 'PwMJtdvnz',
+        //     grafanaLinkDText: 'kubePrometheus',
+        //   },
+        // }
+}
+
+export default allMetrics;
 console.log(Object.keys(allMetrics).length) // 37
 

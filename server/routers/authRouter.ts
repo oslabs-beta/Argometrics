@@ -13,7 +13,7 @@ router.post('/login', userController.getUser, (req: Request, res: Response) => {
 // general user register
 router.post('/register', userController.addUser, (req: Request, res: Response) => {
   // what to send back?
-  return res.status(200)
+  return res.status(200).json(res.locals.userInfo);
 })
 
 // google auth login
@@ -23,7 +23,7 @@ router.get('/google', passport.authenticate('google', { scope: [ 'email' ] }))
 // what endpoint to redirect upon failure? upon success? 
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/api/auth/failure' }),
-  (req: Request, res: Response) => res.redirect('/mainPage')
+  (req: Request, res: Response) => res.redirect('/')
 )
 
 // logout router
