@@ -32,8 +32,8 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(passport.authenticate('session'))
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 
 // serve static files?
 app.use(express.static(path.join(__dirname, '../client')));

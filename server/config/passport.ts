@@ -1,5 +1,5 @@
 import passport from 'passport';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth2';
+import { Strategy as GoogleStrategy, StrategyOptionsWithRequest } from 'passport-google-oauth2';
 import dotenv from 'dotenv';
 const userController = require('../controllers/userController');
 const User = require('../models/userModel')
@@ -11,17 +11,18 @@ dotenv.config();
   // function searches db for existing user based on GoogleId and
   // either returns said user info or adds them to the db
   const search = async (accessToken: string, refreshToken: string, profile: any, done: any) => {
-    console.log('profile', profile)
+    const googleId = profile.sub
+    // console.log('profile', profile)
     // verify user in db
-    const checkUser = await userController.getGoogleUser(profile.sub)
+    const checkUser: any = await userController.getGoogleUser(googleId)
     // if user exists, authenticate user
-    if (checkUser.length) {
-      done(null, checkUser)
-    } else {
-    // else add user profile and authenticate
-      const id = await userController.addGoogleUser(profile)
+    if (checkUser.length === 0) {
+      // else add user profile and authenticate
+      const addedUser = await userController.addGoogleUser(profile)
       // need to verify this part works
-      done(null, id)
+      return done(null, addedUser)
+    } else {
+      return done(null, checkUser[0])
     }
   }
 
