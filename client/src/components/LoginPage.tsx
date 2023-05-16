@@ -27,8 +27,8 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
       })
         .then((res)=> res.json())
         .then((data)=>{
-          setUserId(data[0]._id);
-          console.log('data from login: ', data[0]._id);
+          setUserId(data._id);
+          console.log('data from login: ', data._id);
           navigate('/mainPage');
         })
         .catch((err)=>{
@@ -49,7 +49,7 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
     })
       .then((res)=> res.json())
       .then((data)=>{
-        setUserId(data);
+        setUserId(data._id);
         console.log("signed up: ", userId);
         navigate('/mainPage');
       })

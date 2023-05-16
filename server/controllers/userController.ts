@@ -18,17 +18,17 @@ const userController = {
       console.log('userController.getuser', password)
       User.find({ username })
         // fix any type !! 
-        .then((user: any) => {
+        .then((user: any[]) => {
           if (!user) throw new Error('error finding user in database')
           
           // verify username and password hash match db
-          const hashedPassword = user[0].password
+          const hashedPassword = user[0].password;
 
           bcrypt.compare(password, hashedPassword)
             .then((match: boolean) => {
               if (match) {
-                res.locals.userInfo = user
-                return next()
+                res.locals.userInfo = user[0];
+                return next();
               }
             })
             .catch((err: ErrorRequestHandler) => {
