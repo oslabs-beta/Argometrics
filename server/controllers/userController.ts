@@ -80,30 +80,32 @@ const userController = {
 
 
   // google auth
-  getGoogleUser: (googleId: string, req: Request, res: Response, next: NextFunction) => {
-    // check db for user based on google id
-    User.find({ googleId: googleId })
-      .then((user: object) => {
-        // return the user info
-        return user
-      })
-      .catch((err: ErrorRequestHandler) => {
-        // if no user found, return empty array for passport.ts (expect no length for no user found)
-        errorObject(err)
-        return []
-      })
+  getGoogleUser: async (googleId: string) => {
+    try {
+      const user: any = await User.find({ googleId: googleId })
+      return user
+    }
+    catch (err: any) {
+      errorObject(err)
+      return []
+    }
   },
 
   // add google user to db 
-  addGoogleUser: (profile: any) => {
-    User.create({ googleId: profile.sub })
-      .then((user: object) => {
-        return user
+  addGoogleUser: async (profile: any) => {
+    const { sub, displayName } = profile
+    try {
+      const user: any = await User.create({ 
+        googleId: sub,
+        username: displayName,
+        password: sub
       })
-      .catch((err: ErrorRequestHandler) => {
-        errorObject(err)
-        return []
-      })
+      return user
+    }
+    catch (err: any) {
+      errorObject(err)
+      return []
+    }
   },
 
 

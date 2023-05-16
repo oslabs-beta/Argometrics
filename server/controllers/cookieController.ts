@@ -8,6 +8,11 @@ const cookieController = {
       });
       return next();
     }
+    const user: any = req.user
+    if (user.googleId) {
+      res.cookie('googleId', user.googleId, { httpOnly: true })
+      return next()
+    }
   }
 }
 

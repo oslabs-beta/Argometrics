@@ -25,7 +25,10 @@ router.get('/google', passport.authenticate('google', { scope: [ 'profile' ] }))
 // what endpoint to redirect upon failure? upon success? 
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/api/auth/failure' }),
-  (req: Request, res: Response) => res.redirect('http://localhost:8888/mainPage')
+  cookieController.sessionCookie,
+  (req: Request, res: Response) => {
+    res.redirect('http://localhost:8888/mainPage')
+  }
 )
 
 // logout router
