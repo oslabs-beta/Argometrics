@@ -21,7 +21,7 @@ module.exports = {
                         '@babel/preset-react'
                     ]
                 }
-               } 
+               }
             },
             {
               test: /\.(ts|tsx)$/,
@@ -55,7 +55,7 @@ module.exports = {
         port: 8888,
         // static: path.join(__dirname, 'public/'),
         // devMiddleware: {  
-        //   publicPath: '/dist/'
+        //   publicPath: './dist'
         // },
         static: {
           directory: path.resolve(__dirname, 'dist'),
@@ -65,7 +65,10 @@ module.exports = {
         historyApiFallback: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
         proxy: {
-          '/api/**': 'http://localhost:6000/'
+          '/api/**': {
+            target: 'http://localhost:6000/',
+            // changeOrigin: true,
+          }
         }
       },
     resolve: {

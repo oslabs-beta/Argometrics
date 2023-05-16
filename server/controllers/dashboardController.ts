@@ -1,10 +1,11 @@
 //import types
 import express, { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 import { DBUIds } from '../../types';
+const fetch = require('node-fetch');
 
 const createErrorObject = (err: any) => {
   return {
-    log: 'Error in clusterController',
+    log: 'Error in dashboardController',
     message: { err: `An error occurred ${err}` },
   }
 };
@@ -50,7 +51,7 @@ const dashboardController = {
       for(k in dashboards) {
         try {
           // awaiting fetch from grafana
-          const data = await fetch(`${url}/api/search?query=${dashboards[k]}`,
+          const fetchData = await fetch(`${url}/api/search?query=${dashboards[k]}`,
             {
               method:'GET',
               headers: {
@@ -60,7 +61,8 @@ const dashboardController = {
               },
             }
           )
-          .then(response => response.json() as Promise<any[]>)
+          // fix any type
+          const data: any = fetchData.json()
 
         //   // awaiting fetched data to json shape
         //   const parsedData = await data.json();
