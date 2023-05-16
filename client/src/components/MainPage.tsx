@@ -58,10 +58,10 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
             if (dashOptions.includes(toggleDashboard)){
                 dropDown = [
                     <>
-                     <button style={{height: '20px'}} id='apiDash' onClick={()=> setToggleDashboard('apiServer')}>API Dashboard</button>
-                     <button style={{height: '20px'}} id='metricDash' onClick={()=> setToggleDashboard('kubeStateMetric')}>Kubernetes Metric Dashboard</button>
-                     <button style={{height: '20px'}} id='nodeDash' onClick={()=> setToggleDashboard('nodeExporter')}>Node Exporter</button>
-                     <button style={{height: '20px'}} id='kubePromDash' onClick={()=> setToggleDashboard('kubePrometheus')}>Kube Prometheus Dashboard</button>
+                     <button className="dash-buttons" id='apiDash' onClick={()=> setToggleDashboard('apiServer')}>API Dashboard</button>
+                     <button className="dash-buttons" id='metricDash' onClick={()=> setToggleDashboard('kubeStateMetric')}>Kubernetes Metric Dashboard</button>
+                     <button className="dash-buttons" id='nodeDash' onClick={()=> setToggleDashboard('nodeExporter')}>Node Exporter</button>
+                     <button className="dash-buttons" id='kubePromDash' onClick={()=> setToggleDashboard('kubePrometheus')}>Kube Prometheus Dashboard</button>
                      </>
                 ]
             } 
@@ -101,9 +101,9 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
             {buttons}
         </div>
             <div id="button-container">
-                <animated.button style={buttonAnimation} id='homeButton' className={toggleDashboard === 'home' ?  'active': ''} onClick={()=>{setToggleDashboard('home')}}>Home</animated.button>
-                <animated.button style={buttonAnimation} className={toggleDashboard === 'home' ? '' : 'active'} onClick={()=>{setToggleDashboard('dash')}}>Dashboard</animated.button>
-                <div id='dropDown'>{dropDown}</div>
+                <animated.button id='homeButton' style={buttonAnimation}  className={toggleDashboard === 'home' ?  'active': ''} onClick={()=>{setToggleDashboard('home')}}>Home</animated.button>
+                <animated.button id="dash" style={buttonAnimation} className={toggleDashboard === 'home' ? '' : 'active'} onClick={()=>{setToggleDashboard('dash')}}>Dashboard</animated.button>
+                {dropDown}
             </div>
                 <div id="main-container">
                     {mainComponent}
