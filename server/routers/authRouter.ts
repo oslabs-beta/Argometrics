@@ -15,7 +15,7 @@ router.post('/login', userController.getUser, cookieController.sessionCookie, se
 // general user register
 router.post('/register', userController.addUser, cookieController.sessionCookie, sessionController.startSession, (req: Request, res: Response) => {
   // what to send back?
-  return res.status(200).json(res.locals.userInfo)
+  return res.status(200).json(res.locals.userInfo);
 })
 
 // google auth login

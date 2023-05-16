@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(50, 49, 56);
+}
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(50, 49, 56);
+  color: rgb(227, 222, 222);
+  a {
+    color: rgb(166, 63, 63);
+    text-decoration: none;
+  };
+  a:hover{
+    text-decoration: underline;
+  }
+}
+#argometrics{
+  font-size: 50px;
+  margin: 30px;
+}
+#logInOrSignUp {
+
+  input { 
+    margin: 20px;
+  }
+  button {
+    margin: 10px;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
