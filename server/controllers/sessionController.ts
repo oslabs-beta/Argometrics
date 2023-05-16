@@ -19,7 +19,8 @@ const sessionController = {
         return next();
       })
       .catch((err: ErrorRequestHandler) => {
-        return errorObject(err);
+        const error = errorObject(err);
+        return next(error);
       })
   },
   isLoggedIn: (req: Request, res: Response, next: NextFunction) => {
