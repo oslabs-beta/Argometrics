@@ -6,23 +6,23 @@ const User = require('../models/userModel')
 
 dotenv.config();
 
-module.exports = function(passport: any) {
+// module.exports = function(passport: any) {
   
   // function searches db for existing user based on GoogleId and
   // either returns said user info or adds them to the db
   const search = async (accessToken: string, refreshToken: string, profile: any, done: any) => {
     console.log('profile', profile)
     // verify user in db
-    // const checkUser = await userController.getGoogleUser(profile.sub)
-    // // if user exists, authenticate user
-    // if (checkUser.length) {
-    //   done(null, checkUser)
-    // } else {
-    // // else add user profile and authenticate
-    //   const id = await userController.addGoogleUser(profile)
-    //   // need to verify this part works
-    //   done(null, id)
-    // }
+    const checkUser = await userController.getGoogleUser(profile.sub)
+    // if user exists, authenticate user
+    if (checkUser.length) {
+      done(null, checkUser)
+    } else {
+    // else add user profile and authenticate
+      const id = await userController.addGoogleUser(profile)
+      // need to verify this part works
+      done(null, id)
+    }
   }
 
   const strategy = new GoogleStrategy({
@@ -46,4 +46,4 @@ module.exports = function(passport: any) {
     // done(null, user as false);
     User.findbyId(id, (err: Error, user: object) => done(err, user))
   })
-}
+// }

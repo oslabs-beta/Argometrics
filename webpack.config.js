@@ -21,7 +21,7 @@ module.exports = {
                         '@babel/preset-react'
                     ]
                 }
-               } 
+               }
             },
             {
               test: /\.(ts|tsx)$/,
@@ -65,9 +65,9 @@ module.exports = {
         historyApiFallback: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
         proxy: {
-          '/': {
+          '/api/**': {
             target: 'http://localhost:6000/',
-            changeOrigin: true,
+            // changeOrigin: true,
           }
         }
       },
