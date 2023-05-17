@@ -23,7 +23,6 @@ const dashboardController = {
 
     // names of the dashboards we will search for
     const dashboards = {
-
       apiServerUId: 'apiServer',
       kubeStateMetricUId: 'kubeStateMetric',
       kubePrometheusUId: 'kubePrometheus',
@@ -31,7 +30,8 @@ const dashboardController = {
     };
 
     // call fetchGrafana fn
-    const dashboardUIds = fetchGrafana();
+    const dashboardUIds = await fetchGrafana();
+    console.log(dashboardUIds);
     // dashboardUIds is going to be an obj
     // {
     //   apiServer: uid from grafana
@@ -55,20 +55,22 @@ const dashboardController = {
             {
               method:'GET',
               headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: `Basic ${encodedCredentials}`
-              },
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: `Basic ${encodedCredentials}`
+              },a
             }
           )
           // fix any type
-          const data: any = fetchData.json()
-
+          const data: any = await fetchData.json()
+          // console.log('fetchedData = ', fetchData)
+          // console.log('data = ', data)
         //   // awaiting fetched data to json shape
         //   const parsedData = await data.json();
           
         //   // add as key value pair to dashboardUIds
           dashboardUIds[k] = data[0].uid;
+          // console.log('check dashboardUId', dashboardUIds[k])
         }
         catch(err) {
             return createErrorObject(err);

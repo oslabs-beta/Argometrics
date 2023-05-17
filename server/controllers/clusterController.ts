@@ -26,7 +26,7 @@ const clusterController = {
         const { name, url } = req.body;
         try {
             const dashboards = await dashboardController.getDashboards(url);
-            const newCluster = Cluster.create({
+            const newCluster = await Cluster.create({
                 userId: userId,
                 clusterName: name,
                 url: url,
