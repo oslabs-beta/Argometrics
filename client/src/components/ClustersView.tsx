@@ -4,17 +4,20 @@ import { Cluster } from '../../../types'
 interface ClusterProps {
   userId: string
   cluster: Array<Cluster>
-  setCluster: React.Dispatch<React.SetStateAction<Array<Cluster>>>
+  currCluster: Cluster
+  setCurrCluster: React.Dispatch<React.SetStateAction<Cluster>>
   // pass in handleClusterClick too
 }
 
-function ClusterView({ userId, cluster, setCluster }: ClusterProps) {
+function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterProps) {
   // let buttons: any = [];
   // buttons.push(<button onClick = {() => setCluster(cluster)} className='cluster-buttons'></button>)
 
   const buttons: JSX.Element[] = cluster.map((clusterContent: any, idx: number) => {
-    return <button key = {idx} onClick = {() => setCluster(clusterContent[idx])} className='cluster-buttons'> </button>
+    const clusterButton = <button key = {idx} onClick = {() => setCurrCluster(clusterContent)} className='cluster-buttons'>{clusterContent.clusterName}</button>;
+    return clusterButton
   })
+  
   return(
     <div id="cluster-container">
       <h1>Cluster View</h1>
@@ -24,3 +27,4 @@ function ClusterView({ userId, cluster, setCluster }: ClusterProps) {
  }
 
 export default ClusterView;
+

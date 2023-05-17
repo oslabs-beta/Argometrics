@@ -15,7 +15,7 @@ const userController = {
   getUser: (req: Request, res: Response, next: NextFunction) => {
       // check db for user based on user id 
       const { username, password } = req.body;
-      console.log('userController.getuser', password)
+      // console.log('userController.getuser', password)
       User.find({ username })
         // fix any type !! 
         .then((user: any[]) => {
@@ -50,7 +50,7 @@ const userController = {
   // add general user to db
   addUser: (req: Request, res: Response, next: NextFunction) => {
     const { username, password } = req.body;
-    console.log('usercontroller.adduser', username, password)
+    // console.log('usercontroller.adduser', username, password)
 
     // add db check for unique username
     User.find({ username })

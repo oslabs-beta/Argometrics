@@ -28,7 +28,7 @@ const Home = ({ userId, cluster, setCluster, showClusterEditor, setShowClusterEd
           className="fa-thin fa-plus fa-fade fa-xl"
           style={buttonAnimation}
         ></animated.button>}
-        {showClusterEditor && <ClusterEditor setShowClusterEditor={ setShowClusterEditor } />}
+        {showClusterEditor && <ClusterEditor cluster={cluster} setShowClusterEditor={ setShowClusterEditor } />}
       </div>
     </>
   );

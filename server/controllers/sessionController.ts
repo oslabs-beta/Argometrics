@@ -24,21 +24,21 @@ const sessionController = {
       })
   },
   isLoggedIn: (req: Request, res: Response, next: NextFunction) => {
-    console.log('request cookies', req.cookies)
+    // console.log('request cookies', req.cookies)
     Session.findOne({ cookieId: req.cookies.session })
       .then((data: any) => {
-        console.log('data from findOne', data)
+        // console.log('data from findOne', data)
         if (!data && res.locals.userInfo) {
-          console.log('userInfo', res.locals.userInfo)
+          // console.log('userInfo', res.locals.userInfo)
           const { _id } = res.locals.userInfo;
           // find session based on _id in db -> if none, create
           //query Session db by _id, if one exists, delete before creating a new one
           const newSession = new Session({cookieId: _id});
-          console.log('newSession created', newSession)
+          // console.log('newSession created', newSession)
           newSession
             .save()
             .then((newSession: object) => {
-              console.log('newSession inside save', newSession)
+              // console.log('newSession inside save', newSession)
               res.locals.newSession = newSession;
               return next();
             })

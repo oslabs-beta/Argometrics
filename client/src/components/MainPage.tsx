@@ -42,7 +42,8 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
 
   // hook to set the cluster you are working on
     // clicking on a different cluster should call setCluster
-  const [cluster, setCluster] = useState(Array<Cluster>);
+  const [cluster, setCluster] = useState<Array<Cluster>>([]);
+  const [currCluster, setCurrCluster] = useState<Cluster>(defaultCluster);
   const [clusterFetched, setClusterFetched] = useState<boolean>(false)
   const [toggleDashboard, setToggleDashboard] = useState<string>('home');
   const [showClusterEditor, setShowClusterEditor] = useState<boolean>(false)
@@ -50,15 +51,16 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
   // fetch to the backend to get clusters
   useEffect( () => {
     async function fetchCluster(userId: string) {
-      const response = await fetch('/api/cluster/get')
-      const cluster = await response.json()
-      setCluster(cluster)
-      console.log('fetched clusters on main page', cluster)
+      const response = await fetch('/api/cluster/get');
+      const cluster = await response.json();
+      setCluster(cluster);
       // setClusterFetched(true)
     }
     fetchCluster(userId);
   }, [])
-  
+  useEffect( () => {
+    console.log(currCluster)
+  }, [currCluster,setCurrCluster])
   
 
   
@@ -66,12 +68,12 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
     if (toggleDashboard === 'home'){
       mainComponent = <Home userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
     } else {
-      mainComponent = <Dashboard userId={userId} cluster={cluster} toggleDashboard={toggleDashboard} setToggleDashboard= {setToggleDashboard}/>;
+      mainComponent = <Dashboard userId={userId} cluster={cluster} currCluster = {currCluster} toggleDashboard={toggleDashboard} setToggleDashboard={setToggleDashboard}/>;
     }
 
   return (
     <div id='main-page-container'>
-      <ClustersView userId = {userId} cluster = {cluster} setCluster = {setCluster}/>
+      <ClustersView userId = {userId} cluster = {cluster} currCluster = {currCluster} setCurrCluster = {setCurrCluster}/>
         <NavBar toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
           <div id="main-container">
           {mainComponent}
