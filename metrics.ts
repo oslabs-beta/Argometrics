@@ -329,5 +329,5 @@ export function grafanaIFrameGenerator(cluster: Cluster, metric: string, refresh
 }
 
 export default allMetrics;
-console.log(Object.keys(allMetrics).length) // 37
+// console.log(Object.keys(allMetrics).length) // 37
 

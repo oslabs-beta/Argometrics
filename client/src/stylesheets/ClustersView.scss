@@ -1,0 +1,18 @@
+#cluster-container {
+  display: flex;
+  background-color: #636564;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #7db1de;
+  
+}
+
+.cluster-buttons {
+  height: 4vw;
+  width:  4vw;
+  box-shadow: 0px 0px 10px gray;
+  border: none;
+  border-radius: 0.5vw;
+}

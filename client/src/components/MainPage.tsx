@@ -1,5 +1,7 @@
 import React, {useState, useContext, useEffect, MouseEvent} from 'react';
 import Dashboard from './Dashboard';
+import NavBar from './NavBar';
+import ClustersView from './ClustersView'
 import { useSpring, animated } from 'react-spring';
 import { config } from '@react-spring/web';
 import Home from './Home';
@@ -11,6 +13,8 @@ interface MainPageProps {
   }
 
 const MainPage = ({userId, setUserId}: MainPageProps) => {
+
+  // default values so type script knows the type of what its taking in
   const defaultDashboard: DashboardUIds = {
     apiServer: {
         dashboardUIDKey: '',
@@ -38,78 +42,40 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
 
   // hook to set the cluster you are working on
     // clicking on a different cluster should call setCluster
-  const [cluster, setCluster] = useState<Cluster>(defaultCluster);
-  const [clustersFetched, setClustersFetched] = useState<boolean>(false)
-
-  // thinking we make 4 dashboard toggles
-     // one for each db 
+  const [cluster, setCluster] = useState(Array<Cluster>);
+  const [clusterFetched, setClusterFetched] = useState<boolean>(false)
   const [toggleDashboard, setToggleDashboard] = useState<string>('home');
-//   const [toggleApiDashboard, setToggleApiDashboard] = useState(false);
-//   const [toggleMetricDashboard, setToggleMetricDashboard] = useState(false);
-//   const [togglePrometheusDashboard, setTogglePrometheusDashboard] = useState(false);
-//   const [toggleNodeDashboard, setToggleNodeDashboard] = useState(false);
+  const [showClusterEditor, setShowClusterEditor] = useState<boolean>(false)
 
-  // displays editCluster
-  const [showEditCluster, setShowEditCluster] = useState(false)
+  // fetch to the backend to get clusters
+  useEffect( () => {
+    async function fetchCluster(userId: string) {
+      const response = await fetch('/api/cluster/get')
+      const cluster = await response.json()
+      setCluster(cluster)
+      console.log('fetched clusters on main page', cluster)
+      // setClusterFetched(true)
+    }
+    fetchCluster(userId);
+  }, [])
   
-        let mainComponent = <Home userId = {userId} cluster = {cluster} setCluster = {setCluster}/>;
-        let dropDown;
-        const dashOptions = ['dash', 'apiServer', 'kubeStateMetric', 'prometheusExporter', 'kubePrometheus', 'nodeExporter'];
-            if (dashOptions.includes(toggleDashboard)){
-                dropDown = [
-                    <>
-                     <button className="dash-buttons" id='apiDash' onClick={()=> setToggleDashboard('apiServer')}>API Dashboard</button>
-                     <button className="dash-buttons" id='metricDash' onClick={()=> setToggleDashboard('kubeStateMetric')}>Kubernetes Metric Dashboard</button>
-                     <button className="dash-buttons" id='nodeDash' onClick={()=> setToggleDashboard('nodeExporter')}>Node Exporter</button>
-                     <button className="dash-buttons" id='kubePromDash' onClick={()=> setToggleDashboard('kubePrometheus')}>Kube Prometheus Dashboard</button>
-                     </>
-                ]
-            } 
-            if (toggleDashboard === 'home'){
-                mainComponent = <Home userId = {userId} cluster = {cluster} setCluster = {setCluster}/>;
-                
-            }
-            else {
+  
 
-                mainComponent = <Dashboard userId = {userId} cluster = {cluster} toggleDashboard = {toggleDashboard} />;
-                
-            }
+  
+  let mainComponent = <Home userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
+    if (toggleDashboard === 'home'){
+      mainComponent = <Home userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
+    } else {
+      mainComponent = <Dashboard userId={userId} cluster={cluster} toggleDashboard={toggleDashboard} setToggleDashboard= {setToggleDashboard}/>;
+    }
 
-            
-        
-
-            useEffect(() => {
-              console.log(toggleDashboard);
-          }, [toggleDashboard]);
-
-          let buttons = []
-          for(let i = 0; i < 10; i++){
-            buttons.push(<button className='cluster-buttons'></button>)
-
-          }
-          const buttonAnimation = useSpring({
-            transform: 'translateY(0)', // Starting position
-            from: { transform: 'translateY(300px)' }, // Initial position
-            config: config.molasses,
-          });
-          
-        
-    return (
-     <div id='main-page-container'>
-        <div id="cluster-container">
-            <h3>Cluster View</h3>
-            {buttons}
-        </div>
-            <div id="button-container">
-                <animated.button id='homeButton' style={buttonAnimation}  className={toggleDashboard === 'home' ?  'active': ''} onClick={()=>{setToggleDashboard('home')}}>Home</animated.button>
-                <animated.button id="dash" style={buttonAnimation} className={toggleDashboard === 'home' ? '' : 'active'} onClick={()=>{setToggleDashboard('dash')}}>Dashboard</animated.button>
-                {dropDown}
-            </div>
-                <div id="main-container">
-                    {mainComponent}
-                </div> 
-                {/* <button id="darkModeButton">Toggle Dark Mode</button> */}
-                
+  return (
+    <div id='main-page-container'>
+      <ClustersView userId = {userId} cluster = {cluster} setCluster = {setCluster}/>
+        <NavBar toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
+          <div id="main-container">
+          {mainComponent}
+          </div> 
     </div>
     )
 }

@@ -1,13 +1,20 @@
 import React from 'react';
 import '../stylesheets/Dashboard.scss'
 import {Cluster} from '../../../types'
+
 interface DashboardProps {
   userId: string;
-  cluster: Cluster;
+  cluster: Array<Cluster>;
   toggleDashboard: string
+  setToggleDashboard: React.Dispatch<React.SetStateAction<string>>
 }
-const Dashboard = ({ userId, cluster, toggleDashboard }: DashboardProps) => {
-  // going to prop drill our cluster
+const Dashboard = ({ userId, cluster, toggleDashboard, setToggleDashboard }: DashboardProps) => {
+  // if toggleDashboard<string>
+
+  // set up conditional render of components based on toggleDashboard i.e. nodeExporter, kubeStateMetrics, etc
+    // pass necessary state to each component
+  
+
   return(
     <div>
       <div id='dashboard-container'>

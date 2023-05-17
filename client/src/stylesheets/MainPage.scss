@@ -21,22 +21,6 @@
     
 }
 
-#button-container {
-    background-color: #636564;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 10vw;
-    border-right: .05rem solid black;
-    border-left: .05rem solid black;
-    justify-content: space-around;
-    
-
-    button:hover {
-        cursor: pointer;
-    }
-
-}
 
 #main-container {
     flex-direction: row;
@@ -45,53 +29,10 @@
 }
 
 
-.cluster-buttons {
-    height: 4vw;
-    width:  4vw;
-    box-shadow: 0px 0px 10px gray;
-    border: none;
-    border-radius: 0.5vw;
-}
-
 .active {
     background-color: #7db1de
 }
 
-.dash-buttons {
-    
-    border: none;
-    box-shadow: 0px 0px 10px gray;
-    overflow: hidden;
-    height: 6vw;
-    width: 6vw;
-    font-size: 1vw;
-    border-radius: 1vw;
-    margin: 1vw;
-    font-size: .8vw;
-}
 
-#homeButton {
-    border: none;
-        box-shadow: 0px 0px 10px gray;
-        overflow: hidden;
-        min-height: 4vw;
-        min-width: 4vw;
-        margin: 1vw;
-        height: 8vw;
-        width: 8vw;
-        font-size: 1vw;
-        border-radius: 1vw;
-}
 
-#dash {
-    border: none;
-        box-shadow: 0px 0px 10px gray;
-        overflow: hidden;
-        min-height: 4vw;
-        min-width: 4vw;
-        margin: 1vw;
-        height: 8vw;
-        width: 8vw;
-        font-size: 1vw;
-        border-radius: 1vw;
-}
+
