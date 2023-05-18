@@ -30,7 +30,7 @@ const Dashboard = ({ userId, cluster, currCluster, toggleDashboard, setToggleDas
   return(
     <>
       <div id='dashboard-container'>
-        <h1 id='dashboard-name'>{toggleDashboard} Dashboard</h1>
+        <h1 id='dashboard-name'>{toggleDashboard === "dash"? "": toggleDashboard} Dashboard</h1>
         {/* {currDash} */}
         {
           toggleDashboard === 'apiServer' ? <ApiServer currCluster={ currCluster } /> :
