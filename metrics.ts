@@ -7,11 +7,11 @@ export const dashboards: any = {
     dashboardUIdKey: 'apiServerUId',
     grafanaLinkDText: 'apiServer',
   },
-  kubeStateMetric: {
+  kubeStateMetrics: {
     fullName: 'Kubelet State Metrics',
     // dashboardUIdKey: 'wAfgtlsOl',
     dashboardUIdKey: 'kubeStateMetricUId',
-    grafanaLinkDText: 'kubeStateMetric',
+    grafanaLinkDText: 'kubeStateMetrics',
   },
   nodeExporter: {
     fullName: 'Node Exporter',
@@ -165,64 +165,64 @@ const allMetrics: any = {
 
 
     //kubeStateMetric
-    kubeStateMetric: {
+    kubeStateMetrics: {
       clusterPodRequested: {
         panelName: 'Cluster Pod Requested',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 4,
         description: ''
       },
       clusterCPURequested: {
         panelName: 'Cluster CPU Requested',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 5,
         description: ''
       },
       clusterMemoryRequested: {
         panelName: 'Cluster Memory Requested',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 6,
         description: ''
       },
       availableNodeNum: {
         panelName: 'Number of Available Nodes',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 88,
         description: ''
       },
       deploymentReplicas: {
           panelName: 'Deployment Replicas',
-          dashboard: 'kubeStateMetric',
+          dashboard: 'kubeStateMetrics',
           panelId: 16,
           description: ''
       },
       statefulsetReplicas: {
         panelName: 'Statefulset Replicas',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 73,
         description: ''
       },
       podsRunning: {
         panelName: 'Pods Running',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 30,
         description: ''
       },
       containersRunning: {
         panelName: 'Containers Running',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 38,
         description: ''
       },
       containerRestarts: {
         panelName: 'Container Restarts',
-        dashboard: 'kubeStateMetric',
+        dashboard: 'kubeStateMetrics',
         panelId: 30,
         description: ''
       },
       hpa: {
           panelName: 'hpa',
-          dashboard: 'kubeStateMetric',
+          dashboard: 'kubeStateMetrics',
           panelId: 82,
           description: ''
       },
@@ -277,11 +277,11 @@ export function grafanaIFrameGenerator(cluster: Cluster, metric: string, iDash: 
   const grafanaUrl: any = cluster.url;
 
   if (!refresh) refresh = 30;
-  if (!theme) theme = 'light';
+  if (!theme) theme = 'dark';
   
   // included what some of the objects look like at the bottom of function for clarity
   const dbUId: string = dashboardUIds[ dashboards[ iDash ].dashboardUIdKey ]
-  const dbText: string = iDash || dashboards[ iDash ].grafanaLinkDText
+  const dbText: string = dashboards[ iDash ].grafanaLinkDText
   const panelId: string = allMetrics[iDash][metric].panelId.toString()
 
   // const dbUId: string = dashboardUIds[dashboards[allMetrics[metric].dashboard].dashboardUIdKey];

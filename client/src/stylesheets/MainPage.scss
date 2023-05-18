@@ -5,15 +5,18 @@
 
 #main-page-container{
     display: flex;
-    height: 98vh;
+    width: 100%;
     border: .05rem solid black;
+    max-height: 100vh;
+    height: 100vh;
 }
 
 
 #main-container {
     flex-direction: row;
     flex-grow: 1;
-    background-color: #38393c
+    background-color: #38393c;
+    max-height: 100vh;
 }
 
 

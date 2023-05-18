@@ -1,5 +1,6 @@
 #button-container {
-  background-color: #1d1e18;
+  height: 100vh;
+  background-color: #383B3A;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -7,7 +8,7 @@
   border-right: .05rem solid black;
   border-left: .05rem solid black;
   justify-content: space-around;
-  
+  overflow: auto;
 
   button:hover {
       cursor: pointer;
@@ -52,4 +53,9 @@
   border-radius: 1vw;
   margin: 1vw;
   font-size: .8vw;
+}
+
+.nav-bar {
+  display: flex;
+  overflow-y: scroll;
 }

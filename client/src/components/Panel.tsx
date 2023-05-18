@@ -5,7 +5,13 @@ interface PanelProps {
 }
 function Panel({ grafanaPanelUrl }: PanelProps) {
   return (
-    <iframe src={grafanaPanelUrl} className='panel'/>
+    <iframe
+      src={grafanaPanelUrl}
+      className='panel'
+      loading='lazy'
+      width='350'
+      height='250'
+    />
   )
 }
 

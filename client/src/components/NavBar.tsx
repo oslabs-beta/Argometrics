@@ -4,6 +4,7 @@ import { config } from '@react-spring/web';
 import { v4 as uuidv4 } from 'uuid';
 import '../stylesheets/NavBar.scss'
 interface NavBarProps {
+  className: string;
   toggleDashboard: string;
   setToggleDashboard: React.Dispatch<React.SetStateAction<string>>
 
@@ -21,12 +22,12 @@ const NavBar = ({toggleDashboard, setToggleDashboard}: NavBarProps)=>{
   }, [toggleDashboard])
 
   let dropDown;
-  const dashOptions = ['dash', 'apiServer', 'kubeStateMetric', 'prometheusExporter', 'kubePrometheus', 'nodeExporter'];
+  const dashOptions = ['dash', 'apiServer', 'kubeStateMetrics', 'prometheusExporter', 'kubePrometheus', 'nodeExporter'];
       if (dashOptions.includes(toggleDashboard)){
           dropDown = [
               <>
                <button key={uuidv4()} className={toggleDashboard === 'apiServer' ? "active" : "dash-buttons"} id='apiDash' onClick={()=> setToggleDashboard('apiServer')}>API Dashboard</button>
-               <button key={uuidv4()} className={toggleDashboard === 'kubeStateMetric' ? "active" : "dash-buttons"} id='metricDash' onClick={()=> setToggleDashboard('kubeStateMetric')}>Kubernetes Metric Dashboard</button>
+               <button key={uuidv4()} className={toggleDashboard === 'kubeStateMetrics' ? "active" : "dash-buttons"} id='metricDash' onClick={()=> setToggleDashboard('kubeStateMetrics')}>Kubernetes Metric Dashboard</button>
                <button key={uuidv4()} className={toggleDashboard === 'nodeExporter' ? "active" : "dash-buttons"} id='nodeDash' onClick={()=> setToggleDashboard('nodeExporter')}>Node Exporter</button>
                <button key={uuidv4()} className={toggleDashboard === 'kubePrometheus' ? "active" : "dash-buttons"} id='kubePromDash' onClick={()=> setToggleDashboard('kubePrometheus')}>Kube Prometheus Dashboard</button>
                </>

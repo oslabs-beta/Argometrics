@@ -17,7 +17,7 @@ export type DashboardUIds = {
     dashboardUIDKey: string,
     grafanaLinkDText: string
   },
-  kubeStateMetric: {
+  kubeStateMetrics: {
     dashboardUIDKey: string,
     grafanaLinkDText: string
   },

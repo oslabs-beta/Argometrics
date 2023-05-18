@@ -21,7 +21,7 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
         dashboardUIDKey: '',
         grafanaLinkDText: ''
       },
-      kubeStateMetric: {
+      kubeStateMetrics: {
         dashboardUIDKey: '',
         grafanaLinkDText: ''
       },
@@ -71,10 +71,10 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
   return (
     <div id='main-page-container'>
       <ClustersView key={uuidv4()} userId = {userId} cluster = {cluster} currCluster = {currCluster} setCurrCluster = {setCurrCluster}/>
-        <NavBar key={uuidv4()} toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
-          <div id="main-container">
-          {mainComponent}
-          </div> 
+      <NavBar className="nav-bar" key={uuidv4()} toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
+      <div id="main-container">
+        {mainComponent}
+      </div> 
     </div>
     )
 }
