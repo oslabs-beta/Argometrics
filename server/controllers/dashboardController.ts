@@ -58,7 +58,7 @@ const dashboardController = {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 Authorization: `Basic ${encodedCredentials}`
-              },a
+              },
             }
           )
           // fix any type

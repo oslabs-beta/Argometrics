@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import ClustersView from './ClustersView'
 import { useSpring, animated } from 'react-spring';
 import { config } from '@react-spring/web';
+import { v4 as uuidv4 } from 'uuid';
 import Home from './Home';
 import '../stylesheets/MainPage.scss';
 import { Cluster, DashboardUIds } from '../../../types';
@@ -58,23 +59,19 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
     }
     fetchCluster(userId);
   }, [])
-  useEffect( () => {
-    console.log(currCluster)
-  }, [currCluster,setCurrCluster])
-  
 
   
   let mainComponent = <Home userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
     if (toggleDashboard === 'home'){
-      mainComponent = <Home userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
+      mainComponent = <Home key={uuidv4()} userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
     } else {
-      mainComponent = <Dashboard userId={userId} cluster={cluster} currCluster = {currCluster} toggleDashboard={toggleDashboard} setToggleDashboard={setToggleDashboard}/>;
+      mainComponent = <Dashboard key={uuidv4()} userId={userId} cluster={cluster} currCluster = {currCluster} toggleDashboard={toggleDashboard} setToggleDashboard={setToggleDashboard}/>;
     }
 
   return (
     <div id='main-page-container'>
-      <ClustersView userId = {userId} cluster = {cluster} currCluster = {currCluster} setCurrCluster = {setCurrCluster}/>
-        <NavBar toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
+      <ClustersView key={uuidv4()} userId = {userId} cluster = {cluster} currCluster = {currCluster} setCurrCluster = {setCurrCluster}/>
+        <NavBar key={uuidv4()} toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
           <div id="main-container">
           {mainComponent}
           </div> 
