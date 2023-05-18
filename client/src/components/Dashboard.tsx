@@ -20,7 +20,7 @@ const Dashboard = ({ userId, cluster, currCluster, toggleDashboard, setToggleDas
     currDash.push(<Panel grafanaPanelUrl={url}/>)
   }
   // set up conditional render of components based on toggleDashboard i.e. nodeExporter, kubeStateMetrics, etc
-    // pass necessary state to each component
+  // pass necessary state to each component
   
 
   return(

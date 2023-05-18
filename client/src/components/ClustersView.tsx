@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Cluster } from '../../../types'
+import { v4 as uuidv4 } from 'uuid';
+import '../stylesheets/ClustersView.scss'
 
 interface ClusterProps {
   userId: string
@@ -14,13 +16,13 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
   // buttons.push(<button onClick = {() => setCluster(cluster)} className='cluster-buttons'></button>)
 
   const buttons: JSX.Element[] = cluster.map((clusterContent: any, idx: number) => {
-    const clusterButton = <button key = {idx} onClick = {() => setCurrCluster(clusterContent)} className='cluster-buttons'>{clusterContent.clusterName}</button>;
+    const clusterButton = <button key = {uuidv4()} onClick = {() => setCurrCluster(clusterContent)} className='cluster-buttons'>{clusterContent.clusterName}</button>;
     return clusterButton
   })
-  
+
   return(
     <div id="cluster-container">
-      <h1>Cluster View</h1>
+      <h1>Current Cluster: {currCluster.clusterName}</h1>
       {buttons}
     </div>
   )
