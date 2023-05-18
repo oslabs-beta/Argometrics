@@ -1,24 +1,12 @@
 * {
     // border: 1px solid red;
-    font-family: 'Roboto';
-    
+    font-family: 'Roboto Mono', monospace;
 }
 
 #main-page-container{
     display: flex;
     height: 98vh;
     border: .05rem solid black;
-}
-
-#cluster-container {
-    display: flex;
-    background-color: #636564;
-    padding: 1rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    color: #7db1de;
-    
 }
 
 
@@ -30,7 +18,16 @@
 
 
 .active {
-    background-color: #7db1de
+    background-color: #b9f5d8;
+    border: none;
+    box-shadow: 0px 0px 10px gray;
+    overflow: hidden;
+    height: 6vw;
+    width: 6vw;
+    font-size: 1vw;
+    border-radius: 1vw;
+    margin: 1vw;
+    font-size: .8vw;
 }
 
 

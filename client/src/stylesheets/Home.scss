@@ -1,4 +1,5 @@
 #homepage {
+    background-color: #383B3A;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,24 +11,24 @@
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: rgb(50, 49, 56);
+    background-color: #aad2ba;
     color:aliceblue;
     height: 25vw;
     width: 25vw;
     font-size: 15vw;
-    box-shadow: 0px 0px 20px #ACE894;
+    box-shadow: 0px 0px 20px #6b8f71;
     align-self: center;
     margin-bottom: 70px;
     border-radius: 1vw;
 }
 
 #cluster-btn:hover {
-    background-color: #ACE894;
+    background-color: #6b8f71;
     
     cursor: pointer;
 }
 
 h1{
-color: #7db1de
+color: #d9fff5
 
 }

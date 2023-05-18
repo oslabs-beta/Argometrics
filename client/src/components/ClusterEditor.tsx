@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Cluster} from '../../../types'
+import '../stylesheets/ClusterEditor.scss'
 
 interface ClusterEditorProps {
   setShowClusterEditor: React.Dispatch<React.SetStateAction<boolean>>
@@ -44,7 +45,6 @@ function ClusterEditor({ setShowClusterEditor , cluster}: ClusterEditorProps) {
           <div className='buttonContainer'>
             <button className='addClusterButton' onClick= {() => createCluster()}>Add Cluster</button>
             <button className='homeButton' onClick= {() => setShowClusterEditor(false)}>Exit Editor</button>
-            
           </div>
         </div>
         

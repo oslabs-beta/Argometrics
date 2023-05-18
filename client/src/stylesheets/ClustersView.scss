@@ -1,18 +1,64 @@
-#cluster-container {
-  display: flex;
-  background-color: #636564;
-  padding: 1rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  color: #7db1de;
-  
-}
 
 .cluster-buttons {
+  display: flex;
   height: 4vw;
   width:  4vw;
+  margin: 4vh;
+  background-color: #d9fff5;
   box-shadow: 0px 0px 10px gray;
   border: none;
   border-radius: 0.5vw;
+  color: #1d1e18;
+  justify-content: right;
+  align-items: center;
+  overflow: scroll;
+  font-size: .5vw;
 }
+
+#cluster-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  background-color: #6b8f71;
+  height: 100vh;
+  font-size: .5vw;
+  width: 10vw;
+  max-width: 10vw;
+  padding-left: 3rem;
+}
+#currCluster-name-container {
+  align-items: left;
+  justify-content: left;
+  background-color: #6b8f71;
+  color: #b9f5d8
+}
+#cluster-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: space-around;
+  
+}
+
+  // background-color: #d9fff5;
+  // box-shadow: 0px 0px 10px gray;
+  // border: none;
+  // border-radius: 0.5vw;
+  // color: #1d1e18;
+  // justify-content: right;
+  // align-items: center;
+  // overflow: hidden;
+  // font-size: .5vw;
+// }
+//   <>
+//   <div id="cluster-name-container">
+//     <h2>Cluster Name</h2>
+//     <div id="currCluster-nam-container">
+//       {currCluster.clusterName}
+//     </div>
+//   </div>
+//   <div id="cluster-container">
+//     {buttons}
+//   </div>
+// </>
