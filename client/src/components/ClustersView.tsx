@@ -14,7 +14,7 @@ interface ClusterProps {
 function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterProps) {
   // let buttons: any = [];
   // buttons.push(<button onClick = {() => setCluster(cluster)} className='cluster-buttons'></button>)
-
+  console.log('cluster', cluster)
   const buttons: JSX.Element[] = cluster.map((clusterContent: any, idx: number) => {
     const clusterButton = <button key = {uuidv4()} onClick = {() => setCurrCluster(clusterContent)} className='cluster-buttons'>{clusterContent.clusterName}</button>;
     return clusterButton

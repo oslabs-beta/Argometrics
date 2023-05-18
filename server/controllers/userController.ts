@@ -16,11 +16,11 @@ const userController = {
       // check db for user based on user id 
       const { username, password } = req.body;
       // console.log('userController.getuser', password)
-      User.find({ username })
+      User.find({ username }).exec()
         // fix any type !! 
         .then((user: any[]) => {
-          if (!user) throw new Error('error finding user in database')
-          
+          // if (!user) throw new Error('error finding user in database')
+          // console.log('user', user)
           // verify username and password hash match db
           const hashedPassword = user[0].password;
 
