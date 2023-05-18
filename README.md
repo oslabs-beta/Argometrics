@@ -40,10 +40,6 @@ HOW TO CHANGE GRAFANA SETTINGS VIA GRAFANA CONFIG
           allow_embedding: true
           [auth.anonymous]
           enabled: true
-          [dataproxy]
-          timeout: 600
-            - this will allow us to embed grafana dashboards to our application via an iframe
-            - iframe points to grafana instance running in our container
         * HELPFUL VI COMMANDS
             - i -> to edit the file ( you will see 'INSERT' at bottom )
             - ESC -> escape edit mode back to command mode

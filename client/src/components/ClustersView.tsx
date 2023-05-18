@@ -21,10 +21,18 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
   })
 
   return(
-    <div id="cluster-container">
-      <h1>Current Cluster: {currCluster.clusterName}</h1>
-      {buttons}
-    </div>
+    <>
+      <div id="cluster-name-container">
+        <h2>Cluster Name</h2>
+        <div id="currCluster-name-container">
+          {currCluster.clusterName}
+        </div>      
+        <div id="cluster-container">
+          {buttons}
+        </div>
+      </div>
+    </>
+    
   )
  }
 
