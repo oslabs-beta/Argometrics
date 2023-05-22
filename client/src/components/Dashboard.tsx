@@ -30,13 +30,14 @@ const Dashboard = ({ userId, cluster, currCluster, toggleDashboard, setToggleDas
   return(
     <>
       <div id='dashboard-container'>
-        <h1 id='dashboard-name'>Dashboard Name</h1>
+        <h1 id='dashboard-name'>{toggleDashboard === "dash"? "": toggleDashboard} Dashboard</h1>
         {/* {currDash} */}
         {
           toggleDashboard === 'apiServer' ? <ApiServer currCluster={ currCluster } /> :
           toggleDashboard === 'kubePrometheus' ? <KubePrometheus currCluster={ currCluster } /> :
-          toggleDashboard === 'KubeStateMetrics' ? <KubeStateMetrics currCluster={ currCluster } /> :
-          <NodeExporter currCluster={ currCluster } />
+          toggleDashboard === 'kubeStateMetrics' ? <KubeStateMetrics currCluster={ currCluster } /> :
+          toggleDashboard === 'nodeExporter' ? <NodeExporter currCluster={ currCluster } /> :
+          null
         }
       </div>
     </>

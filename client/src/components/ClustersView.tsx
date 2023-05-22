@@ -15,6 +15,7 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
   // let buttons: any = [];
   // buttons.push(<button onClick = {() => setCluster(cluster)} className='cluster-buttons'></button>)
   console.log('cluster', cluster)
+  // wrap map fnc in if statement checking if cluster is defined
   const buttons: JSX.Element[] = cluster.map((clusterContent: any, idx: number) => {
     const clusterButton = <button key = {uuidv4()} onClick = {() => setCurrCluster(clusterContent)} className='cluster-buttons'>{clusterContent.clusterName}</button>;
     return clusterButton
@@ -23,10 +24,12 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
   return(
     <>
       <div id="cluster-name-container">
-        <h2>Cluster Name</h2>
-        <div id="currCluster-name-container">
-          {currCluster.clusterName}
-        </div>      
+        <div id='cluster-name'>
+          <h2>Cluster Name</h2>
+          <div id="currCluster-name-container">
+            {currCluster.clusterName}
+          </div>
+        </div>     
         <div id="cluster-container">
           {buttons}
         </div>
