@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Home from './Home';
 import '../stylesheets/MainPage.scss';
 import { Cluster, DashboardUIds } from '../../../types';
+import { useNavigate } from 'react-router-dom';
 interface MainPageProps {
     userId: string;
     setUserId: React.Dispatch<React.SetStateAction<string>>
@@ -49,12 +50,35 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
   const [toggleDashboard, setToggleDashboard] = useState<string>('home');
   const [showClusterEditor, setShowClusterEditor] = useState<boolean>(false)
 
+  const navigate = useNavigate();
+
+  const handleLogoutClick = () => {
+    fetch('api/auth/logout',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({userId}) ,
+    })
+    .then((res)=> res.json())
+    .then((res) =>{
+        if (res === 'success'){
+          navigate('/');
+        }
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  }
+
+
   // fetch to the backend to get clusters
   useEffect( () => {
     async function fetchCluster(userId: string) {
       const response = await fetch('/api/cluster/get');
       const cluster = await response.json();
       setCluster(cluster);
+      console.log('userId', userId)
       // setClusterFetched(true)
     }
     fetchCluster(userId);
@@ -75,6 +99,7 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
       <div id="main-container">
         {mainComponent}
       </div> 
+      <button id='logout' onClick = {() => handleLogoutClick()}>Log Out</button>
     </div>
     )
 }

@@ -15,6 +15,12 @@ const cookieController = {
       res.cookie('googleId', user.googleId, { httpOnly: true })
       return next()
     }
+  },
+  deleteSessionCookie: (req: Request, res: Response, next: NextFunction) => {
+    console.log('about to delete!')
+    res.clearCookie('session');
+    console.log('cookie deleted!')
+    return next();
   }
 }
 

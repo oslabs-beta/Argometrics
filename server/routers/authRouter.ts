@@ -12,8 +12,17 @@ router.post('/login', userController.getUser, cookieController.sessionCookie, se
   return res.status(200).json(res.locals.userInfo)
 })
 
+//user logout
+router.post('/logout', cookieController.deleteSessionCookie, sessionController.endSession, (req: Request, res: Response) => {
+  return res.status(200).json('success');
+})
+// router.post('/logout', (req: Request, res: Response) => {
+//   console.log('body', req.body);
+//   res.status(200).json('hi')
+// })
+
 // general user register
-router.post('/register', userController.addUser, cookieController.sessionCookie, sessionController.startSession, (req: Request, res: Response) => {
+router.get('/register', userController.addUser, cookieController.sessionCookie, sessionController.startSession, (req: Request, res: Response) => {
   // what to send back?
   return res.status(200).json(res.locals.userInfo);
 })

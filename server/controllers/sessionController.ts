@@ -23,6 +23,18 @@ const sessionController = {
         return next(error);
       })
   },
+  endSession: (req: Request, res: Response, next: NextFunction)=>{
+      const { userId } = req.body;
+      console.log('endSession Id', userId)
+      Session.findOneAndDelete({cookieId: userId})
+        .then((data?:any) =>{
+          console.log('data deleted', data)
+          return next();
+        })
+        .catch((err:ErrorRequestHandler)=>{
+          console.log(err)
+        })
+  },
   isLoggedIn: (req: Request, res: Response, next: NextFunction) => {
     // console.log('request cookies', req.cookies)
     Session.findOne({ cookieId: req.cookies.session })
