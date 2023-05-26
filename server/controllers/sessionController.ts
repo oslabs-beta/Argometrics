@@ -23,7 +23,20 @@ const sessionController = {
         return next(error);
       })
   },
+
+  //ends any previously existing Session when user logs in
+  endLastSession:(req: Request, res: Response, next: NextFunction)=>{
+      const { _id } = res.locals.userInfo;
+      Session.findOneAndDelete({cookieId: _id})
+        .then(()=>{
+          console.log('ended prev session');
+          return next();
+        })
+        .catch((err:ErrorRequestHandler)=> console.log(err, 'in endlastsession'))
+  },
+
   endSession: (req: Request, res: Response, next: NextFunction)=>{
+      console.log('in the func')
       const { userId } = req.body;
       console.log('endSession Id', userId)
       Session.findOneAndDelete({cookieId: userId})

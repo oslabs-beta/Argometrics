@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../stylesheets/LoginPage.scss'
 
@@ -96,6 +96,18 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
       ]
     }
   
+    // useEffect(()=>{
+    //   //make fetch req to front end, look for session cookie,
+    //   //if cookie matches active session, redirect to mainpage
+    //   fetch('api/auth/checkSession')
+    //     .then((data)=> data.json() )
+    //     .then((data)=>{
+    //       console.log("uedata", data)
+    //       if (data){
+    //         navigate('/mainPage')
+    //       }
+    //     })
+    // },[])
 
   return(
     <div id='login-container'>
