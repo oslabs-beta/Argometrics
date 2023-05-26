@@ -99,7 +99,9 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
       <div id="main-container">
         {mainComponent}
       </div> 
+      <div id='logout-container'>
       <button id='logout' onClick = {() => handleLogoutClick()}>Log Out</button>
+      </div>
     </div>
     )
 }
