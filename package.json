@@ -2,12 +2,13 @@
   "name": "argometrics",
   "version": "1.0.0",
   "description": "ORDER OF ACTION",
-  "main": "./client/index.tsx",
+  "main": "./electron/main.tsx",
   "scripts": {
     "build": "webpack --mode production",
     "devdev": "webpack-dev-server --mode development --open --hot",
     "dev": "concurrently \"webpack-dev-server --mode development --hot --open\" \"nodemon ./server/server.ts\"",
-    "start": "nodemon server/server.ts"
+    "start": "nodemon server/server.ts",
+    "electron-start": "electron ."
   },
   "keywords": [],
   "author": "",
