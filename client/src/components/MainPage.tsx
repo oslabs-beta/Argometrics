@@ -98,10 +98,11 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
       <NavBar className="nav-bar" key={uuidv4()} toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
       <div id="main-container">
         {mainComponent}
+        <button id='logout' onClick = {() => handleLogoutClick()}>Log Out</button>
       </div> 
-      <div id='logout-container'>
-      <button id='logout' onClick = {() => handleLogoutClick()}>Log Out</button>
-      </div>
+      
+      
+     
     </div>
     )
 }

@@ -6,9 +6,10 @@
 #main-page-container{
     display: flex;
     width: 100%;
-    border: .05rem solid black;
-    max-height: 100vh;
+    // border: .05rem solid black;
+    // max-height: 100vh;
     height: 100vh;
+    
 }
 
 
@@ -17,6 +18,7 @@
     flex-grow: 1;
     background-color: #38393c;
     max-height: 100vh;
+    position: relative;
 }
 
 
@@ -41,7 +43,11 @@
     border: none;
     background-color: #d3d3d3;
     border-radius: .5vh;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
+
 #logout-container {
     background-color: #1d1e18;
 }
