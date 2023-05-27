@@ -8,7 +8,8 @@
     "devdev": "webpack-dev-server --mode development --open --hot",
     "dev": "concurrently \"webpack-dev-server --mode development --hot --open\" \"nodemon ./server/server.ts\"",
     "start": "nodemon server/server.ts",
-    "electron-start": "electron ."
+    "electron-start": "electron .",
+    "test": "jest --verbose"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "react-dom": "^18.2.0",
     "react-spring": "^9.7.1",
     "sass": "^1.62.1",
+    "supertest": "^6.3.3",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -43,6 +45,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/express-session": "^1.17.7",
+    "@types/jest": "^29.5.1",
     "@types/node": "^20.1.4",
     "@types/passport": "^1.0.12",
     "@types/passport-google-oauth2": "^0.1.5",
