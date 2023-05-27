@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import passport from 'passport';
 import '../config/passport';
 const userController = require('../controllers/userController');
@@ -6,14 +6,20 @@ const cookieController = require('../controllers/cookieController');
 const sessionController = require('../controllers/sessionController');
 const router = express.Router();
 
+//checks if there is an active session and redirects to mainpage
+// router.get('/checkSession', sessionController.isLoggedIn, (req: Request, res: Response)=>{
+//     res.status(200).json(res.locals.sessionIsActive)
+// })
+
+
 // general user login
-router.post('/login', userController.getUser, cookieController.sessionCookie, sessionController.isLoggedIn, (req: Request, res: Response) => {
+router.post('/login', userController.getUser, cookieController.sessionCookie, sessionController.endLastSession, sessionController.isLoggedIn, (req: Request, res: Response) => {
   // what to send back?
   return res.status(200).json(res.locals.userInfo)
 })
 
 // general user register
-router.post('/register', userController.addUser, cookieController.sessionCookie, sessionController.startSession, (req: Request, res: Response) => {
+router.get('/register', userController.addUser, cookieController.sessionCookie, sessionController.endLastSession, sessionController.startSession, (req: Request, res: Response) => {
   // what to send back?
   return res.status(200).json(res.locals.userInfo);
 })
@@ -31,8 +37,10 @@ router.get('/google/callback',
   }
 )
 
-// logout router
-
+//user logout
+router.post('/logout', cookieController.deleteSessionCookie, sessionController.endSession, (req: Request, res: Response) => {
+  return res.status(200).json('success');
+})
 
 // failed authentication
 router.get('/failure', (req: Request, res: Response) => {
