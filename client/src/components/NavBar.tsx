@@ -20,7 +20,7 @@ const NavBar = ({toggleDashboard, setToggleDashboard}: NavBarProps)=>{
 
 
   let dropDown;
-  const dashOptions = ['dash', 'apiServer', 'kubeStateMetrics', 'prometheusExporter', 'kubePrometheus', 'nodeExporter'];
+  const dashOptions = ['dash', 'apiServer', 'kubeStateMetrics', 'prometheusExporter', 'kubePrometheus', 'nodeExporter', 'keda'];
       if (dashOptions.includes(toggleDashboard)){
           dropDown = [
               <>
@@ -28,6 +28,7 @@ const NavBar = ({toggleDashboard, setToggleDashboard}: NavBarProps)=>{
                <button key={uuidv4()} className={toggleDashboard === 'kubeStateMetrics' ? "active" : "dash-buttons"} id='metricDash' onClick={()=> setToggleDashboard('kubeStateMetrics')}>Kubernetes Metric Dashboard</button>
                <button key={uuidv4()} className={toggleDashboard === 'nodeExporter' ? "active" : "dash-buttons"} id='nodeDash' onClick={()=> setToggleDashboard('nodeExporter')}>Node Exporter</button>
                <button key={uuidv4()} className={toggleDashboard === 'kubePrometheus' ? "active" : "dash-buttons"} id='kubePromDash' onClick={()=> setToggleDashboard('kubePrometheus')}>Kube Prometheus Dashboard</button>
+               <button key={uuidv4()} className={toggleDashboard === 'keda' ? "active" : "dash-buttons"} id='keda' onClick={()=> setToggleDashboard('keda')}>KEDA</button>
                </>
           ]
       } 

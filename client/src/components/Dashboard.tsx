@@ -87,6 +87,7 @@ const Dashboard = ({ userId, cluster, currCluster, toggleDashboard, setToggleDas
           toggleDashboard === 'kubePrometheus' ? <KubePrometheus currCluster={ currCluster } kubePromDashboard={ kubePromDashboard } setKubePromDashboard={ setKubePromDashboard } updateDashboard={ updateDashboard } /> :
           toggleDashboard === 'kubeStateMetrics' ? <KubeStateMetrics currCluster={ currCluster } kubeStateDashboard={ kubeStateDashboard } setKubeStateDashboard={ setKubeStateDashboard } updateDashboard={ updateDashboard } /> :
           toggleDashboard === 'nodeExporter' ? <NodeExporter currCluster={ currCluster } nodeDashboard={ nodeDashboard } setNodeDashboard={ setNodeDashboard } updateDashboard={ updateDashboard } /> :
+          toggleDashboard === 'keda' ? <NodeExporter currCluster={ currCluster } nodeDashboard={ nodeDashboard } setNodeDashboard={ setNodeDashboard } updateDashboard={ updateDashboard } /> :
           null
         }
       </div>
