@@ -52,7 +52,7 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
 
   useEffect(() => {
     // if cluster is defined
-    if (cluster) {
+    if (Array.isArray(cluster)) {
       const button: React.ReactElement[] = cluster.map((clusterContent: any, idx: number) => {
       return <CreateButton key={uuidv4()} setCurrCluster={setCurrCluster} handleDrop={handleDrop} index={idx} clusterContent={clusterContent} buttons={buttons} setButtons={setButtons}/>;
       })
