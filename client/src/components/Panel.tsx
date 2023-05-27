@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useDrag, useDrop } from 'react-dnd';
 
 interface PanelProps {
   grafanaPanelUrl: string;
+  i: number;
 }
-function Panel({ grafanaPanelUrl }: PanelProps) {
+function Panel({ grafanaPanelUrl, i }: PanelProps) {
+
+  const [ { isDragging }, dragRef ] = useDrag({
+    type: 'index',
+    item: { i, grafanaPanelUrl },
+    end: (item, monitor) => {
+      const dropResult = monitor.getDropResult()
+    },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging()
+    })
+  })
+
+  const opacity = isDragging ? 0.3 : 1
+
+
   return (
-    <iframe
-      src={grafanaPanelUrl}
-      className='panel'
-      loading='lazy'
-      width='350'
-      height='250'
-    />
+    <>
+      <div ref={dragRef} style={ {opacity} }>
+        <iframe
+          src={grafanaPanelUrl}
+          className='panel'
+          loading='lazy'
+          width='400'
+          height='300'
+        />
+        {isDragging}
+      </div>
+    </>
   )
 }
 

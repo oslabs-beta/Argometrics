@@ -4,19 +4,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 92vh;
+    height: 93.8%;
     // border-radius: 1rem;
     padding: 2vw;
 }
 .dashboard-container {
      display: grid;  
      grid-template-columns: repeat(3, 1fr);
-     gap: 10px 10px;
+     gap: 3em;
      width: 100%;
-    overflow: scroll;
-    height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 .panel {
     border: 1px solid #b9f5d8;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
