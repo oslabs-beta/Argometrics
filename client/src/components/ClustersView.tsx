@@ -126,4 +126,3 @@ function CreateButton({clusterContent, buttons, setButtons, index, setCurrCluste
     </>
   )
 }
-
