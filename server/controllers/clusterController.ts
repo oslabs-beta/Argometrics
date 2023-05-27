@@ -24,6 +24,7 @@ const clusterController = {
     addCluster: async (req: Request, res: Response, next: NextFunction) => {
         const userId = req.cookies.session;
         const { name, url } = req.body;
+        console.log('in cluster');
         try {
             const dashboards = await dashboardController.getDashboards(url);
             const newCluster = await Cluster.create({
@@ -33,6 +34,7 @@ const clusterController = {
                 dashboards: dashboards
             })
             res.locals.newCluster = newCluster;
+            console.log('newclust', newCluster);
             return next();
         }
         catch (err) {

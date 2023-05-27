@@ -25,9 +25,9 @@ USEFUL HELM AND K8 COMMANDS
     - kubectl port-forward -n default {prometheus podname} 
 - kubectl port-forward -n default prometheus-grafana-85978cf69c-29dw9 3000
     - kubectl port-forward -n default {grafana podname} 
+kubectl port-forward -n default prometheus-grafana-85978cf69c-zqhwd 3000
 
-
-
+keda dash: asdasd8rvmMxdVk
 HOW TO CHANGE GRAFANA SETTINGS VIA GRAFANA CONFIG
 --------------------------------------------------------
 - use kubectl get deployment

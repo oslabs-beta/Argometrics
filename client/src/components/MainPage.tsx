@@ -33,6 +33,10 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
       nodeExporter: {
         dashboardUIDKey: '',
         grafanaLinkDText: ''
+      },
+      keda: {
+        dashboardUIDKey: '',
+        grafanaLinkDText: '',
       }
     }
   const defaultCluster: Cluster = {

@@ -25,6 +25,11 @@ export const dashboards: any = {
     dashboardUIdKey: 'kubePrometheusUId',
     grafanaLinkDText: 'kubePrometheus',
   },
+  keda: {
+    fullname: 'Keda',
+    dashboardUIDkey: 'kedaUId',
+    grafanaLinkDText: 'keda'
+  }
 }
 
 const allMetrics: any = {
@@ -267,6 +272,39 @@ const allMetrics: any = {
         panelId: 47,
         description: ''
       },
+    },
+
+    keda: {
+      scalerMetricValue: {
+       panelName: 'Scaler Metric Value',
+       dashboard: 'keda',
+       panelId: 5,
+       description: ''
+      },
+      scalerTotalErrors: {
+        panelName: 'Scaler Total Errors',
+        dashboard: 'keda',
+        panelId: 4,
+        description: ''
+       },
+       scalerErrors: {
+        panelName: 'Scaler Errors',
+        dashboard: 'keda',
+        panelId: 3,
+        description: ''
+       },
+       hpaCurrentMaxReplicas: {
+        panelName: 'HPA Current/Max Replicas',
+        dashboard: 'keda',
+        panelId: 15,
+        description: ''
+       },
+       changesInReplicas: {
+        panelName: 'Changes In Replicas',
+        dashboard: 'keda',
+        panelId: 11,
+        description: ''
+       },
     }
 }
 
