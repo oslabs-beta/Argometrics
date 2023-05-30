@@ -10,6 +10,7 @@ const createErrorObject = (err: any) => {
 }
 
 const clusterController = {
+    // gets all clusters that belong to the userId in the cookie session from database
     getAllClusters: async (req: Request, res: Response, next: NextFunction) => {
         const userId = req.cookies.session;
         try {
@@ -21,6 +22,7 @@ const clusterController = {
             return next(createErrorObject(err));
         }
     },
+    // add a cluster to database by userId in cookie session (name and url from user required)
     addCluster: async (req: Request, res: Response, next: NextFunction) => {
         const userId = req.cookies.session;
         const { name, url } = req.body;
@@ -41,6 +43,7 @@ const clusterController = {
             return next(createErrorObject(err));
         }
     },
+    // deletes a cluster given clusterId
     deleteCluster: async (req: Request, res: Response, next: NextFunction) => {
         // takes in cluster id 
         const clusterId = req.params.ClusterId;

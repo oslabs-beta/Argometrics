@@ -13,7 +13,7 @@ interface HomeProps {
 }
 const Home = ({ userId, cluster, setCluster, showClusterEditor, setShowClusterEditor}: HomeProps) => {
   
-  
+  // animated button that on click, opens the cluster editor
   const buttonAnimation = useSpring({
     transform: 'translateY(0)', // Starting position
     from: { transform: 'translateY(3000px)' }, // Initial position
