@@ -23,8 +23,6 @@ function ClusterEditor({ setShowClusterEditor , cluster}: ClusterEditorProps) {
             body: JSON.stringify(clusterObj)
           });
           const result = await response.json()
-          console.log('result from adding cluster', result)
-          
       }
     }
     catch(err){

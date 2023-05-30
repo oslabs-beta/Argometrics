@@ -82,13 +82,12 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
       const response = await fetch('/api/cluster/get');
       const cluster = await response.json();
       setCluster(cluster);
-      console.log('userId', userId)
       // setClusterFetched(true)
     }
     fetchCluster(userId);
   }, [])
 
-  
+  // determines what to render based off what button was clicked
   let mainComponent = <Home userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
     if (toggleDashboard === 'home'){
       mainComponent = <Home key={uuidv4()} userId={userId} cluster={cluster} setCluster={setCluster} showClusterEditor={showClusterEditor} setShowClusterEditor={setShowClusterEditor} />;
