@@ -6,9 +6,10 @@
   "scripts": {
     "build": "webpack --mode production",
     "devdev": "webpack-dev-server --mode development --open --hot",
-    "dev": "concurrently \"webpack-dev-server --mode development --hot --open\" \"nodemon ./server/server.ts\"",
+    "dev": "concurrently \"webpack-dev-server --mode development --hot --no-open\" \"nodemon ./server/server.ts\" ",
     "start": "nodemon server/server.ts",
     "electron-start": "electron .",
+    "dev-electron": "concurrently \"npm run dev\" \"npm run electron-start\"",
     "test": "jest --verbose"
   },
   "keywords": [],

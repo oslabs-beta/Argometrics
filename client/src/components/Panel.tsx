@@ -28,7 +28,7 @@ function Panel({ grafanaPanelUrl, i }: PanelProps) {
           src={grafanaPanelUrl}
           className='panel'
           loading='lazy'
-          width='400'
+          width='450'
           height='300'
         />
         {isDragging}

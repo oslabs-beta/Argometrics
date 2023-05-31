@@ -28,10 +28,14 @@ function ClusterEditor({ setShowClusterEditor , cluster}: ClusterEditorProps) {
     catch(err){
       console.log(err, 'cluster post req unsuccessful');
     }
- 
-
-
   }
+
+  const addCluster = () => {
+    createCluster();
+    setShowClusterEditor(false);
+  }
+
+
   //  
   return (
     <div className='clusterEditorContainer'>
@@ -41,7 +45,7 @@ function ClusterEditor({ setShowClusterEditor , cluster}: ClusterEditorProps) {
           <input type='text' placeholder='Cluster Name' className='clusterName' onChange= {(e)=> setClusterEditorName(e.target.value)}></input>
           <input type='text' placeholder='Cluster Url' className='clusterUrl' onChange= {(e)=> setClusterEditorUrl(e.target.value)}></input>
           <div className='buttonContainer'>
-            <button className='addClusterButton' onClick= {() => createCluster()}>Add Cluster</button>
+            <button className='addClusterButton' onClick= {() => addCluster()}>Add Cluster</button>
             <button className='homeButton' onClick= {() => setShowClusterEditor(false)}>Exit Editor</button>
           </div>
         </div>

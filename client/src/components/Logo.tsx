@@ -12,7 +12,7 @@ const Logo = ({userId, setUserId}: MainPageProps) => {
 
   useEffect(() => {
     if (!isLogin) {
-      setTimeout(() => setLogin(true), 10000)
+      setTimeout(() => setLogin(true), 5500)
     }
   }, [])
 

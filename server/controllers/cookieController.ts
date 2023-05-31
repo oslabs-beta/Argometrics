@@ -1,5 +1,3 @@
-    //original cookiecontroller
-
 import { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 const cookieController = {
   sessionCookie: (req: Request, res: Response, next: NextFunction) => {

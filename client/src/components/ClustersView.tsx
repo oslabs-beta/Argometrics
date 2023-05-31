@@ -9,30 +9,21 @@ interface ClusterProps {
   cluster: Array<Cluster>
   currCluster: Cluster
   setCurrCluster: React.Dispatch<React.SetStateAction<Cluster>>
+  showClusterEditor: boolean
   // pass in handleClusterClick too
 }
 
-function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterProps) {
+function ClusterView({ userId, cluster, currCluster, setCurrCluster , showClusterEditor}: ClusterProps) {
   const [ buttons, setButtons ] = useState<React.ReactElement[]>([])
-
+  const [ reCluster, setReCluster ] = useState(cluster)
 
   const [ { canDrop, isOver }, dropRef ] = useDrop({
     accept: 'button',
     drop: (item: any, monitor) => {
       const { clusterContent, index } = item
-      // console.log('item', item)
-      // console.log('index', index)
-      // console.log('monitor.getItem', monitor.getItem())
-      
       const hoverIndex = buttons.findIndex((btn) => btn.props.index === monitor.getItem().index)
-      // console.log('hoverIndex', hoverIndex)
       handleDrop(index, hoverIndex)
-      // const draggedButton = buttons[index]
-      // const newButtons = [...buttons]
-      // newButtons.splice(index, 1)
-      // newButtons.splice(hoverIndex, 0, draggedButton)
-      // console.log('newButtons', newButtons)
-      // setButtons(newButtons)
+      
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
@@ -42,7 +33,6 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
 
   const handleDrop = (index: number, hoverIndex: any) => {
     const draggedButton = buttons[index]
-    // console.log('draggedButton', draggedButton.props.index)
     const newButtons = [...buttons]
     newButtons.splice(index, 1)
     newButtons.splice(hoverIndex.index, 0, draggedButton)
@@ -58,7 +48,9 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
       })
       setButtons(button)
     }
-  }, [cluster])
+  }, [cluster, reCluster])
+
+
   
   
 
