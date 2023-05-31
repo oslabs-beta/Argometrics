@@ -17,7 +17,7 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
       //[{googleId: null, password: "$2a$10$suXtDx/4k/VbkC5ScBzg0eDwwWl83iWX.xbU0QwkpPyR8HRW3TKIS", username: "auth", __v: 0, _id: "646277116c71f57f0d34b74f"}]
 
       const userObj = {username: username, password: password};
-      console.log('clicked!', userObj)
+      // make a fetch request to our backend using input username and password
       fetch('api/auth/login', {
         method: 'POST',
         headers: {
@@ -28,13 +28,11 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
         .then((res)=> res.json())
         .then((data)=>{
           setUserId(data._id);
-          console.log('data from login: ', data._id);
           navigate('/mainPage');
         })
         .catch((err)=>{
           console.log(err)
         })
-    console.log(userId);
   }
 
   const handleSignupClick = () =>{
@@ -50,7 +48,6 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
       .then((res)=> res.json())
       .then((data)=>{
         setUserId(data._id);
-        console.log("signed up: ", userId);
         navigate('/mainPage');
       })
       .catch((err)=>{

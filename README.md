@@ -4,16 +4,19 @@
 
 PREREQUISITE
 ------------
+- our application works with local kubernetes clusters. Please have a local cluster configured with some type of Kuberenetes implementation (Docker Desktop recommended)
+
+- please install helm as well
+    - you can install on brew using "brew install helm"
 
 SET-UP
--------
-- helm install prometheus prometheus-community/kube-prometheus-stack  
+--------------------------
+- helm install prometheus prometheus-community/kube-prometheus-stack
+    - this command deploys prometheus and grafana on said local cluster
 
 - kubectl patch ds prometheus-prometheus-node-exporter --type "json" -p '[{"op": "remove", "path" : "/spec/template/spec/containers/0/volumeMounts/2/mountPropagation"}]'
+    - this command is for users running on Docker Desktop
 
-port prometheus forward to 9090
-port grafana forward to 3000
-backend server is on port 6000
 
 USEFUL HELM AND K8 COMMANDS
 --------------------------
@@ -21,13 +24,16 @@ USEFUL HELM AND K8 COMMANDS
 - helm repo list
 - kubectl --namespace default get pods -l "release=prometheus"
 - kubectl get secret --namespace {namespace} {podname} -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
-- kubectl port-forward -n default prometheus-prometheus-kube-prometheus-prometheus-0 9090
-    - kubectl port-forward -n default {prometheus podname} 
-- kubectl port-forward -n default prometheus-grafana-85978cf69c-29dw9 3000
-    - kubectl port-forward -n default {grafana podname} 
-kubectl port-forward -n default prometheus-grafana-85978cf69c-zqhwd 3000
 
-keda dash: asdasd8rvmMxdVk
+
+
+PORTING FORWARD
+--------------------------
+- kubectl port-forward -n default {prometheus podname} {port}
+    - ex: kubectl port-forward -n default prometheus-prometheus-kube-prometheus-prometheus-0 9090
+- kubectl port-forward -n default {grafana podname} {port}
+    - ex: kubectl port-forward -n default prometheus-grafana-85978cf69c-29dw9 3000
+
 HOW TO CHANGE GRAFANA SETTINGS VIA GRAFANA CONFIG
 --------------------------------------------------------
 - use kubectl get deployment
@@ -48,3 +54,12 @@ HOW TO CHANGE GRAFANA SETTINGS VIA GRAFANA CONFIG
                 - :q! -> force quit without saving changes
     - restart docker desktop or whatever virtualization software is being used
     - forward your ports again and the changes to grafana.ini should be reflected in settings tab
+
+ADDING DASHBOARDS
+--------------------------------------------------------
+- port forward your grafana pod and open up the dashboards page
+    - there should be an option to import dashboards
+    - inside of the dashboardJson folder in our application, we have precofigured graphs to import simply copy paste into the import
+    
+
+keda dash: asdasd8rvmMxdVk

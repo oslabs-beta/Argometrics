@@ -49,7 +49,7 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster }: ClusterPr
     setButtons(newButtons)
   }
 
-
+  // useEffect to set buttons whatever clusters the user already has
   useEffect(() => {
     // if cluster is defined
     if (Array.isArray(cluster)) {
