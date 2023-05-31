@@ -15,12 +15,14 @@
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */
    
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
   },
   "include": [
     "client", 
     "electron",
     "controllers",
     "server",
-    "src"]
+    "src",
+    "public"
+  ]
 }

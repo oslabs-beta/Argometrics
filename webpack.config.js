@@ -30,17 +30,28 @@ module.exports = {
               use: ['ts-loader'],
             },
             {
+              test: /\.(gif|svg|png|jpg|jpeg)$/i,
+              type: 'asset/resource',
+              loader: 'file-loader',
+              // generator: {
+              //   filename: './client/assets/[name].[ext]',
+              // },
+              // use: {
+              //   loader: 'file-loader',
+              //   options: {
+              //     outputPath: 'assets/',
+              //     name: './client/assets/[name].[ext]'
+              //   }
+              // },
+              exclude: /node_modules/,
+            },
+            {
               test: /\.s?css/,
               use: [
                 'style-loader',
                 'css-loader',
                 'sass-loader'
               ],
-              exclude: /node_modules/,
-            },
-            {
-              test: /\.(png|jpg|jpeg|gif)$/i,
-              type: 'asset/resource',
               exclude: /node_modules/,
             },
         ]
@@ -54,14 +65,14 @@ module.exports = {
       devServer: {
         host: 'localhost',
         port: 8888,
-        // static: path.join(__dirname, 'public/'),
+        static: path.join(__dirname, 'public'),
         // devMiddleware: {  
         //   publicPath: './dist'
         // },
-        static: {
-          directory: path.resolve(__dirname, 'dist'),
-          publicPath: '/',
-        },
+        // static: {
+        //   directory: path.resolve(__dirname, 'dist'),
+        //   publicPath: '/',
+        // },
         hot: true,
         historyApiFallback: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
@@ -73,7 +84,7 @@ module.exports = {
         }
       },
     resolve: {
-      extensions: ['.*', '.ts', '.tsx', '.js', '.jsx', '.json'],
+      extensions: ['.*', '.ts', '.tsx', '.js', '.jsx', '.json', '.gif', '.svg', 'png'],
       fallback: {
         fs: false,
       },

@@ -1,9 +1,9 @@
 
 .cluster-buttons {
   display: flex;
-  height: 100px;
-  width:  150px;
-  margin: 4vh;
+  height: 140px;
+  width:  140px;
+  margin: 2vh;
   background-color: #d9fff5;
   box-shadow: 0px 0px 10px gray;
   border: none;
@@ -21,7 +21,7 @@
   text-transform: uppercase;
   padding: 0px 80px;
   text-align: center;
-  clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+  clip-path: polygon(20% 0, 80% 0, 100% 50%, 80% 100%, 20% 100%, 0 50%);
   background-color: #161213fd;
   background-image: radial-gradient(200% 70% at center 20%, rgba(48,44,45,1) -30%, rgba(50,46,47,1) 120%, rgba(22,18,19,0.3) 50%, rgba(22,18,19,1) 150%);
   background-repeat: no-repeat;
@@ -30,9 +30,7 @@
 }
 
 .cluster-buttons:hover {
-  background-position-y: -100px;
-  // background-image: radial-gradient(200% 70% at center -40%, rgba(48,44,45,0.75) -30%, rgba(50,46,47,0.75) 49%, rgba(22,18,19,0.75) 50%, rgba(22,18,19,0.75) 150%);
-  
+  background-position-y: -150px;
 }
 
 #cluster-name-container {
@@ -43,7 +41,8 @@
   height: 100vh;
   font-size: .6vw;
   width: 10vw;
-  max-width: 10vw;
+  max-width: 12vw;
+  min-width: 10vw;
   padding-left: 2rem;
   padding-right: 2rem;
   overflow-y: scroll;
@@ -53,24 +52,19 @@
 #currCluster-name-container {
   align-items: left;
   justify-content: left;
-  // background-color: #6b8f71;
-  // color: #b9f5d8;
   font-size: 1.6vw;
   padding-bottom: 1rem;
 }
 #cluster-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin-top: 10px;
 }
 
 #cluster-name {
   position: sticky;
   top: 0;
-  // background-color: lightgrey;
   background-color: #0f0c0dd0;
-  // color: black;
   color: white;
   width: 200%;
   text-align: center;
@@ -80,25 +74,3 @@
 #cluster-name h2 {
   font-size: 13px;
 }
-
-  // background-color: #d9fff5;
-  // box-shadow: 0px 0px 10px gray;
-  // border: none;
-  // border-radius: 0.5vw;
-  // color: #1d1e18;
-  // justify-content: right;
-  // align-items: center;
-  // overflow: hidden;
-  // font-size: .5vw;
-// }
-//   <>
-//   <div id="cluster-name-container">
-//     <h2>Cluster Name</h2>
-//     <div id="currCluster-nam-container">
-//       {currCluster.clusterName}
-//     </div>
-//   </div>
-//   <div id="cluster-container">
-//     {buttons}
-//   </div>
-// </>
