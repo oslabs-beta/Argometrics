@@ -97,7 +97,7 @@ const MainPage = ({userId, setUserId}: MainPageProps) => {
 
   return (
     <div id='main-page-container'>
-      <ClustersView key={uuidv4()} userId = {userId} cluster = {cluster} currCluster = {currCluster} setCurrCluster = {setCurrCluster}/>
+      <ClustersView key={uuidv4()} userId = {userId} cluster = {cluster} currCluster = {currCluster} setCurrCluster = {setCurrCluster} showClusterEditor={showClusterEditor}/>
       <NavBar className="nav-bar" key={uuidv4()} toggleDashboard = {toggleDashboard} setToggleDashboard = {setToggleDashboard}/>
       <div id="main-container">
         {mainComponent}

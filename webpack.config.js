@@ -30,7 +30,7 @@ module.exports = {
               use: ['ts-loader'],
             },
             {
-              test: /\.(gif|svg|png|jpg|jpeg)$/i,
+              test: /\.(gif|svg|mov|png|jpg|jpeg)$/i,
               type: 'asset/resource',
               loader: 'file-loader',
               // generator: {
