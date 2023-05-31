@@ -60,20 +60,36 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
     let logInOrSignUp;
     if(!clickedSignUp){
       logInOrSignUp =  [<div id='logInOrSignUp'>
-        <input
-          type="text"
-          placeholder="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={()=>handleLoginClick()}>Log In</button>
-        <button onClick={()=>setSignUp(true)}>Don't have an account? Sign Up</button>
+        <div id='login-fields'>
+          <span>Welcome!</span>
+          <div id='input-form'>
+            <img src='./person.svg'/>
+            <input
+              type="text"
+              placeholder="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div id='input-form'>
+            <img src='./key.svg'/>
+            <input
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button onClick={()=>handleLoginClick()}>LOGIN</button>
+          <div id='forgot-pass'><a href=''>Forgot password?</a></div>
+        </div>
+        <button id='google-btn'>
+          <div id='google-fields'>
+            <img src='./google-icon-matte.png' />
+            <a href="/api/auth/google">Sign in with Google</a>
+          </div>
+        </button>
+        <button id='register-btn' onClick={()=>setSignUp(true)}>Don't have an account? Sign Up</button>
         </div>]
     }
     else {
@@ -111,10 +127,10 @@ const LoginPage = ({ userId, setUserId,}: LoginPageProps) =>{
 
   return(
     <div id='login-container'>
-     <div id='argometrics'>Argometrics</div>
-      <>{logInOrSignUp}</>
-      <a href="/api/auth/google">Log in with Google</a>
-     </div>
+     {/* <div id='argometrics'>Argometrics</div> */}
+      {logInOrSignUp}
+      {/* <a href="/api/auth/google">Log in with Google</a> */}
+    </div>
 
   )
 }
