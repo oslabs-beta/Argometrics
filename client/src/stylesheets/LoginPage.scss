@@ -1,0 +1,193 @@
+body {
+  background-color: #1B263B;
+  margin: 0;
+}
+// whole login container
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #1B263B;
+  color: rgb(227, 222, 222);
+  a {
+    color: rgb(166, 63, 63);
+    text-decoration: none;
+  };
+  a:hover{
+    text-decoration: underline;
+  };
+  -webkit-animation: fade 2s ease-in;
+  animation: fade 2s ease-in;
+}
+#argometrics{
+  font-size: 50px;
+  margin: 30px;
+}
+
+// login table
+#logInOrSignUp {
+  // all buttons
+  button {
+    margin: 10px;
+    cursor: pointer;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 25rem;
+  height: 45rem;
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  // google button
+  #google-btn {
+    background-color: white;
+    padding: 0.65rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    #google-fields {
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 10px;
+        width: 15%;
+      }
+      a {
+        color: rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
+  #google-btn:hover {
+    background-color: rgba(215, 215, 215, 0.8);
+  }
+  // sign up button
+  #register-btn {
+    border: none;
+    background-color: whitesmoke;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  #register-btn:hover {
+    color: rgba(255, 0, 0, 0.7);
+  }
+}
+
+// includes welcome, user, pass, login, forgot-pass
+#login-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  a {
+    font-size: 12px;
+  }
+  span {
+    font-size: 25px;
+    // color: #778DA9;
+    color: #1B263B;
+    // color: black;
+    margin-bottom: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  // login button
+  button {
+    color: white;
+    font-size: 13px;
+    margin-top: 50px;
+    width: 65%;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 20px;
+    background-image: linear-gradient(to left, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    transition: box-shadow 0.3s;
+  }
+  button:hover {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  }
+  // input forms
+  #input-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    input { 
+      font-size: 14px;
+      margin: 10px;
+      border: none;
+      // border: 1px solid red;
+      width: 80%;
+      padding: 0.5rem;
+      border-radius: 10px;
+      background-color: whitesmoke;
+    }
+    input:focus {
+      outline: none;
+    }
+  }
+}
+
+// logo landing page
+#logo-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1b263b;
+  cursor: pointer;
+}
+#logo-image {
+  width: 60%;
+}
+
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+    // visibility: hidden;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.50;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

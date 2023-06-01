@@ -1,0 +1,59 @@
+* {
+    // border: 1px solid red;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#main-page-container{
+    display: flex;
+    width: 100%;
+    // border: .05rem solid black;
+    // max-height: 100vh;
+    height: 100vh;
+    
+}
+
+#main-container {
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: #38393c;
+    max-height: 100vh;
+    position: relative;
+}
+
+.active {
+  background-color: #778DA9;
+    border: none;
+    box-shadow: 0px 0px 10px gray;
+    overflow: hidden;
+    height: 6vw;
+    width: 6vw;
+    font-size: 1vw;
+    border-radius: .5vw;
+    margin: 1vw;
+    font-size: .8vw;
+}
+
+#logout {
+    margin-top: 5vh;
+    margin-right: 5vh;
+    height:30px;
+    width: 90px;
+    border: none;
+    background-color: #778DA9;
+    border-radius: .5vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#logout:hover {
+    background-color: #a5a5a5;
+}
+
+#logout-container {
+    background-color: #1d1e18;
+}
+
+
+
