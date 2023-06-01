@@ -14,46 +14,38 @@
   <a target="_blank"><img alt='KEDA' src='https://img.shields.io/badge/KEDA-100000?style=for-the-badge&logo=KEDA&logoColor=white&labelColor=000000&color=2F61D3'/></a>
 
 # Argometrics
-Argometrics is an open source product that allows users togit  visualize the health of their local kubernetes clusters. With Prometheus and Grafana scraping and displaying metrics from our cluster, our application visualizes key metrics such as pod and container health, prometheus health, and performance and usage from the cluster in real time.
+Argometrics is an open source product that allows users to visualize the health of their local Kubernetes clusters. With Prometheus and Grafana scraping and displaying metrics from our cluster, our application visualizes key metrics such as pod and container health, prometheus health, and performance and usage from the cluster in real time. Argometrics allows users to change between clusters at the click of a button, making it easy to monitor all clusters in one location.
+
 ![image info](./public/landingPage.gif)
 ![image info](./public/apiServer.gif)
 ![image info](./public/kubeStateMetrics.gif)
 ![image info](./public/nodeExporter.gif)
 
-# PREREQUISITE
-- our application works with local kubernetes clusters. Please have a local cluster configured with some type of Kuberenetes implementation (Docker Desktop recommended)
+# Prerequisites
+- Our application works with local kubernetes clusters. Be sure to have a local cluster configured with some type of Kuberenetes implementation (Docker Desktop recommended)
 
-- please install helm as well
-    - you can install on brew using `brew install helm`
+- Install helm
+    - You can install on brew using `brew install helm`.
 
-# SET-UP
-- `helm install prometheus prometheus-community/kube-prometheus-stack`
-    - this command deploys prometheus and grafana on said local cluster
+# Set-Up
+- `helm install prometheus prometheus-community/kube-prometheus-stack`.
+    - This command deploys Prometheus and Grafana on your local cluster.
 
 - `kubectl patch ds prometheus-prometheus-node-exporter --type "json" -p '[{"op": "remove", "path" : "/spec/template/spec/containers/0/volumeMounts/2/mountPropagation"}]'`
-    - this command is for users running on Docker Desktop
+    - This command is for users running on Docker Desktop.
 
-
-# USEFUL HELM AND K8 COMMANDS
-- `helm list`
-- `helm repo list`
-- `kubectl --namespace default get pods -l "release=prometheus"`
-- `kubectl get secret --namespace {namespace} {podname} -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`
-
-
-
-# PORTING FORWARD
+# Porting Forward
 - `kubectl port-forward -n default {prometheus podname} {port}`
     - ex: `kubectl port-forward -n default prometheus-prometheus-kube-prometheus-prometheus-0 9090`
 - `kubectl port-forward -n default {grafana podname} {port}`
     - ex: `kubectl port-forward -n default prometheus-grafana-85978cf69c-29dw9 3000`
 
-# HOW TO CHANGE GRAFANA SETTINGS VIA GRAFANA CONFIG
-- use kubectl get deployment
-    - find the deployment associated with prometheus and grafana
+# How To Change Grafana Settings Via Grafana Config
+- `kubectl get deployment`
+    - Find the deployment associated with Prometheus and Grafana
 
-- kubectl edit configmap {deployment}
-    - opens up vi file of prometheus/grafana configmap
+- `kubectl edit configmap {deployment}`
+    - Opens up vi file of Prometheus/Grafana configmap
     - add this code under grafana.ini
          ```
         [security]
@@ -62,34 +54,40 @@ Argometrics is an open source product that allows users togit  visualize the hea
         enabled: true
         ```
         * HELPFUL VI COMMANDS
-            - `i` -> to edit the file ( you will see 'INSERT' at bottom )
-            - `ESC` -> escape edit mode back to command mode
-            - common commands in command mode
-                - `:wq` -> write quit ( when you make an update )
-                - `:q!` -> force quit without saving changes
-    - restart docker desktop or whatever virtualization software is being used
-    - forward your ports again and the changes to grafana.ini should be reflected in settings tab
+            - `i` -> To edit the file ( you will see 'INSERT' at bottom )
+            - `ESC` -> Escape edit mode back to command mode
+            - Common commands in command mode
+                - `:wq` -> Write quit ( when you make an update )
+                - `:q!` -> Force quit without saving changes
+    - Restart docker desktop or whatever virtualization software is being used
+    - Forward your ports again and the changes to grafana.ini should be reflected in settings tab
 
-# ADDING DASHBOARDS
-- port forward your grafana pod and open up the dashboards page
-    - there should be an option to import dashboards
-    - inside of the dashboardJson folder in our application, we have precofigured graphs to import simply copy paste into the import
+# Adding Dashboards
+- Port forward your grafana pod and open up the dashboards page
+    - There should be an option to import dashboards on the righthand side.
+    - Inside of the dashboardJson folder in our application, we have precofigured graphs. Simply copy paste into the import.
+ 
+# Useful Helm AND K8 Commands
+- `helm list`
+- `helm repo list`
+- `kubectl --namespace default get pods -l "release=prometheus"`
+- `kubectl get secret --namespace {namespace} {podname} -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`
 
-# CONTRIBUTIONS
-We are always looking for improvement and are welcome to feedback. If you had a feature suggestion, please fork and clone this repo and make a pull request with your new branch
+# Contributions
+We are always looking for improvement and are open to feedback. If you had a feature suggestion, please fork and clone this repo and make a pull request with your new branch. 
 
-- fork our repo
-- clone it to your local machine
+- Fork our repo
+- Clone it to your local machine
 - `git checkout -b newFeatureBranch` in terminal to enter a new branch
-- add and commit your changes once the modifications have been made
+- Add and commit your changes once the modifications have been made
 - `git push origin newFeatureBranch`
-- make a pull request from the newFeatureBranch
+- Make a pull request from the newFeatureBranch
 
-# PlANNED/DESIRED FEATURES
-- built in cli
+# Potential Features for Iteration
+- Built in CLI
 - KEDA integration with our application
-- cloud cluster compatibility
-- setting up ingress to stabilize the cluster connection
+- Cloud cluster compatibility
+- Setting up ingress to stabilize the cluster connection
 
 We originally planned to deploy our application with KEDA and give the user the ability to choose metrics to scale by. Our command line interface would allow the user to add loads to their cluster and the user could test how their cluster health performed under different environments and different scaled objects. Additionally, port-forwarding is currently being used to make our cluster available to our application. We did not know at the time but this causes many instability issues. Moving forward, either making our application compatible with cloud clusters and/or using an ingress instead of porting forward to connect the cluster with our application are things to consider when iterating.
 
