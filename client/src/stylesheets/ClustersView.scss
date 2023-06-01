@@ -29,6 +29,11 @@
   z-index: 1;
 }
 
+.cluster-buttons:active{
+  background-color: #4c7caf;
+  transform: translateY(4px);
+}
+
 .cluster-buttons:hover {
   background-position-y: -150px;
 
