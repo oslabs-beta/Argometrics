@@ -5,14 +5,13 @@
   justify-content: center;
   align-items: center;
   height: 93%;
-  // border-radius: 1rem;
   padding: 2vw;
 }
 .dashboard-container {
-   display: grid;  
-   grid-template-columns: repeat(2, 1fr);
-   gap: 3em;
-   width: 100%;
+  display: grid;  
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3em;
+  width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;
