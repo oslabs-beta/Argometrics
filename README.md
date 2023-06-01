@@ -16,10 +16,11 @@
 # Argometrics
 Argometrics is an open source product that allows users to visualize the health of their local Kubernetes clusters. With Prometheus and Grafana scraping and displaying metrics from our cluster, our application visualizes key metrics such as pod and container health, prometheus health, and performance and usage from the cluster in real time. Argometrics allows users to change between clusters at the click of a button, making it easy to monitor all clusters in one location.
 
-![image info](./public/landingPage.gif)
-![image info](./public/apiServer.gif)
-![image info](./public/kubeStateMetrics.gif)
-![image info](./public/nodeExporter.gif)
+![landingPage](./public/landingPage.gif)
+![addingClusters](./public/addingClusters.gif)
+![apiServer](./public/apiServer.gif)
+![kubeStateMetrics](./public/kubeStateMetrics.gif)
+![nodeExporter](./public/nodeExporter.gif)
 
 # Prerequisites
 - Our application works with local kubernetes clusters. Be sure to have a local cluster configured with some type of Kuberenetes implementation (Docker Desktop recommended)
