@@ -7,12 +7,20 @@
   ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
   ![OAUTH](https://img.shields.io/badge/OAUTH2.0-black?style=for-the-badge&logo=JSON%20web%20tokens)
   ![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white)
-  ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) <a target="_blank"><img alt='Kubernetes' src='https://img.shields.io/badge/Kubernetes-100000?style=for-the-badge&logo=Kubernetes&logoColor=white&labelColor=000000&color=black'/></a>
-  ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
-  ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
+  ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+  ![kubernetes](https://img.shields.io/badge/Kubernetes-100000?style=for-the-badge&logo=Kubernetes&logoColor=white&labelColor=000000&color=black)
+  ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=Prometheus&logoColor=white) 
+  ![Grafana](https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white)
+  ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+  ![Webpack](https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black)
   ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
-  <a target="_blank"><img alt='KEDA' src='https://img.shields.io/badge/KEDA-100000?style=for-the-badge&logo=KEDA&logoColor=white&labelColor=000000&color=2F61D3'/></a>
-
+  ![K6](https://img.shields.io/badge/-K6-white?style=for-the-badge&logo=k6)
+  ![Keda](https://img.shields.io/badge/-KEDA-darkblue?style=for-the-badge&logo=lightning&logoColor=white)
+  ![Bcrypt](https://img.shields.io/badge/BCRYPT-grey?style=for-the-badge&logo=letsencrypt)
+  ![Javascript](https://img.shields.io/badge/javascript-yellow?style=for-the-badge&logo=javascript)
+  ![reactdnd](https://img.shields.io/badge/REACT%20DND-blue?style=for-the-badge&logo=react&logocolor=red)
+  ![passport](https://img.shields.io/badge/PASSPORT-black?style=for-the-badge&logo=passport)
+  ![node](https://img.shields.io/badge/nodejs-forestgreen?style=for-the-badge&logo=nodedotjs&logoColor=black)
 # Argometrics
 Argometrics is an open source product that allows users to visualize the health of their local Kubernetes clusters. With Prometheus and Grafana scraping and displaying metrics from our cluster, our application visualizes key metrics such as pod and container health, prometheus health, and performance and usage from the cluster in real time. Argometrics allows users to change between clusters at the click of a button, making it easy to monitor all clusters in one location.
 
