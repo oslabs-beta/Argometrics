@@ -73,6 +73,16 @@ Argometrics is an open source product that allows users to visualize the health 
 - `kubectl --namespace default get pods -l "release=prometheus"`
 - `kubectl get secret --namespace {namespace} {podname} -o jsonpath="{.data.admin-password}" | base64 --decode ; echo`
 
+# Launching the app
+- To launch Argometrics
+  - Create a .env file in the root directory with the following variables
+     - `ATLAS_URI = {your MongoDB URI}`
+     - `GOOGLE_CLIENT_ID = {Google Client ID}`
+     - `GOOGLE_CLIENT_SECRET = {Google Client Secret}`
+  - `npm install`
+  - `npm run dev`
+  - `npm electron-start`
+
 # Contributions
 We are always looking for improvement and are open to feedback. If you had a feature suggestion, please fork and clone this repo and make a pull request with your new branch. 
 
