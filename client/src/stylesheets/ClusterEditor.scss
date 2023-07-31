@@ -1,17 +1,3 @@
-// <div className='clusterEditorContainer'>
-//       <h2>Cluster Editor</h2>
-//         <div className='ClusterContainer'>
-//           <h5>Add Cluster</h5>
-//           <input type='text' placeholder='Cluster Name' className='clusterName' onChange= {(e)=> setClusterEditorName(e.target.value)}></input>
-//           <input type='text' placeholder='Cluster Url' className='clusterUrl' onChange= {(e)=> setClusterEditorUrl(e.target.value)}></input>
-//           <div className='buttonContainer'>
-//             <button className='addClusterButton' onClick= {() => createCluster()}>Add Cluster</button>
-//             <button className='homeButton' onClick= {() => setShowClusterEditor(false)}>Exit Editor</button>
-            
-//           </div>
-//         </div>
-        
-//     </div>
 
 .clusterEditorContainer {
   color: #778DA9;

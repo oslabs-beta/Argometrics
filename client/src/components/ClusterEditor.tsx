@@ -11,7 +11,6 @@ function ClusterEditor({ setShowClusterEditor , cluster}: ClusterEditorProps) {
   const [clusterEditorName, setClusterEditorName] = useState('');
   
   const createCluster = async () => {
-    //add url and name to db
     try {
         if (clusterEditorUrl && clusterEditorName){
           const clusterObj = {name: clusterEditorName, url: clusterEditorUrl};
@@ -55,13 +54,3 @@ function ClusterEditor({ setShowClusterEditor , cluster}: ClusterEditorProps) {
 }
 
 export default ClusterEditor;
-
-// cluster obj {
-//   dashboards: Object
-//   apiServer: {dashboardUIDKey: "", grafanaLinkDText: ""}
-//   kubePrometheus: {dashboardUIDKey: "", grafanaLinkDText: ""}
-//   kubeStateMetric: {dashboardUIDKey: "", grafanaLinkDText: ""}
-//   nodeExporter: {dashboardUIDKey: "", grafanaLinkDText: ""}
-//   url: ""
-//   userId: ""
-// }

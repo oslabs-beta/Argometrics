@@ -85,4 +85,4 @@ We are always looking for improvement and are welcome to feedback. If you had a 
 - Taylor Ball - [Github](https://github.com/tb1121) | [LinkedIn](https://www.linkedin.com/in/taylorball5/)
 - Joey Schwartz - [Github]() | [LinkedIn]()
 - Alex Yam - [Github](https://github.com/alexyam0) | [LinkedIn](https://www.linkedin.com/in/alex-yam/)
-- Jake Crawford - [Github](https://github.com/jake-up-0517) | [LinkedIn](https://www.linkedin.com/in/jakecrawford512/)
+- Jake Crawford - [Github](https://github.com/jake-up-0517) | [LinkedIn]()
