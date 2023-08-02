@@ -8,7 +8,6 @@
     height: 100vh;
 }
 
-
 #main-container {
     flex-direction: row;
     flex-grow: 1;
@@ -16,7 +15,6 @@
     max-height: 100vh;
     position: relative;
 }
-
 
 .active {
   background-color: #778DA9;
@@ -26,7 +24,7 @@
     height: 6vw;
     width: 6vw;
     font-size: 1vw;
-    border-radius: 1vw;
+    border-radius: .5vw;
     margin: 1vw;
     font-size: .8vw;
 }
@@ -37,7 +35,7 @@
     height:30px;
     width: 90px;
     border: none;
-    background-color: #d3d3d3;
+    background-color: #778DA9;
     border-radius: .5vh;
     position: absolute;
     top: 0;

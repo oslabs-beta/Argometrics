@@ -23,6 +23,10 @@ const Home = ({ userId, cluster, setCluster, showClusterEditor, setShowClusterEd
     <>
       <div id="homepage">
         <h1 className="fa-fade">Add Cluster</h1>
+        <div className="wave wave1"></div>
+        <div className="wave wave2"></div>
+        <div className="wave wave3"></div>
+        <div className="wave wave4"></div>
         {!showClusterEditor && <animated.button onClick={ () => setShowClusterEditor(true) } 
           id="cluster-btn"
           className="fa-thin fa-plus fa-fade fa-xl"
