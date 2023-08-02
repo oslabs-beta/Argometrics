@@ -66,23 +66,22 @@
     cursor: pointer;
 }
 #cluster-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15vw;
-    padding: 13vw 9vw;
-    border: none;
-    outline: none;
-    color: rgb(255, 255, 255);
-    // background: #f1e3e3;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 1vw;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    margin-bottom: 8vw;
+
+  display: flex;
+  font-size: 20vw;   
+  padding: 14vw 12vw;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #f1e3e3;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 1vw;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
 }
 
 #cluster-btn:before {

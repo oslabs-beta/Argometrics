@@ -116,8 +116,10 @@ We originally planned to deploy our application with KEDA and give the user the 
 - Taylor Ball - [Github](https://github.com/tb1121) | [LinkedIn](https://www.linkedin.com/in/taylorball5/)
 - Joey Schwartz - [Github](https://github.com/joeyschwartz) | [LinkedIn](linkedin.com/in/joey-schwartz-7605621a7)
 - Alex Yam - [Github](https://github.com/alexyam0) | [LinkedIn](https://www.linkedin.com/in/alex-yam/)
+
 - Jake Crawford - [Github](https://github.com/jake-up-0517) | [LinkedIn](https://www.linkedin.com/in/jakecrawford512/)
 
 
 # Technologies Icon Reference
 Technology icons by <a target="_blank" href="https://shields.io">shields.io</a>
+

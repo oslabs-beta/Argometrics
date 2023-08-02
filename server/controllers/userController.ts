@@ -20,7 +20,6 @@ const userController = {
         // fix any type !! 
         .then((user: any[]) => {
           // if (!user) throw new Error('error finding user in database')
-          // console.log('user', user)
           // verify username and password hash match db
           const hashedPassword = user[0].password;
 

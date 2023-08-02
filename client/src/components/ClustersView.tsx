@@ -10,7 +10,6 @@ interface ClusterProps {
   currCluster: Cluster
   setCurrCluster: React.Dispatch<React.SetStateAction<Cluster>>
   showClusterEditor: boolean
-  // pass in handleClusterClick too
 }
 
 function ClusterView({ userId, cluster, currCluster, setCurrCluster , showClusterEditor}: ClusterProps) {
@@ -39,9 +38,7 @@ function ClusterView({ userId, cluster, currCluster, setCurrCluster , showCluste
     setButtons(newButtons)
   }
 
-  // useEffect to set buttons whatever clusters the user already has
   useEffect(() => {
-    // if cluster is defined
     if (Array.isArray(cluster)) {
       const button: React.ReactElement[] = cluster.map((clusterContent: any, idx: number) => {
       return <CreateButton key={uuidv4()} setCurrCluster={setCurrCluster} handleDrop={handleDrop} index={idx} clusterContent={clusterContent} buttons={buttons} setButtons={setButtons}/>;
@@ -89,11 +86,6 @@ function CreateButton({clusterContent, buttons, setButtons, index, setCurrCluste
   const [ { isDragging }, dragRef ] = useDrag({
     type: 'button',
     item: { clusterContent, index },
-    // end: (item, monitor) => {
-    //   const dropResult = monitor.getDropResult()
-    //   // console.log('item in drag end', item)
-    //   // console.log('dropResult', dropResult)
-    // },
     collect: (monitor) => ({
       isDragging: monitor.isDragging()
     })
